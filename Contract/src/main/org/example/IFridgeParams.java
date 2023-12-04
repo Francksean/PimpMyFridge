@@ -1,4 +1,4 @@
-package org.example;
+package Contract.src.main.org.example;
 
 public interface IFridgeParams {
     public int getWantedTemp();

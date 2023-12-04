@@ -1,4 +1,4 @@
-package org.example;
+package Model.src.main.org.example;
 
 public class FridgeParams implements IFridgeParams {
     private int internTemp, externTemp, wantedTemp;

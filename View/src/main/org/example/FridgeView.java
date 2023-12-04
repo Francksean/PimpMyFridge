@@ -1,4 +1,4 @@
-package org.example;
+package View.src.main.org.example;
 
 import java.util.Observable;
 import java.util.Observer;
