@@ -1,4 +1,4 @@
-package Model.src.main.org.example;
+package org.example;
 
 import java.util.Observable;
 

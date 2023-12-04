@@ -1,7 +1,8 @@
-package View.src.main.org.example;
+package org.example;
 
 import java.util.Observable;
 import java.util.Observer;
+
 
 public class FridgeView implements Observer, IFridgeView {
     private IFridgeParams params;
@@ -16,4 +17,5 @@ public class FridgeView implements Observer, IFridgeView {
     public void setParams(IFridgeParams params) {
         this.params = params;
     }
+
 }
