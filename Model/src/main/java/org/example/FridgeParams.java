@@ -1,8 +1,14 @@
 package org.example;
 
 public class FridgeParams implements IFridgeParams {
-    private int internTemp, externTemp, wantedTemp;
+    private int internTemp = 0, externTemp = 0, wantedTemp = 0;
     private float humidity;
+
+    public FridgeParams(){
+        this.internTemp = getInternTemp();
+        this.externTemp = getExternTemp();
+        this.humidity = getHumidity();
+    }
 
     public int getWantedTemp() {
         return wantedTemp;
