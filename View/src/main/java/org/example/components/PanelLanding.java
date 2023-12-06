@@ -6,32 +6,18 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import org.example.FridgeParams;
-import org.example.IFridgeParams;
+import org.example.IPanelLanding;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Observable;
-import java.util.Observer;
 
-public class PanelLanding extends StackPane implements Observer {
-
-    private IFridgeParams params = new FridgeParams();
-    String fontUsed = "Roboto";
+public class PanelLanding extends StackPane implements IPanelLanding {
 
     Date date = new Date();
 
-    @Override
-    public void update(Observable o, Object params) {
-        setParams((IFridgeParams) params);
-    }
-    public IFridgeParams getParams() {
-        return params;
-    }
-    public void setParams(IFridgeParams params) {
-        this.params = params;
-    }
-    public PanelLanding(){
+    String fontUsed = "Roboto";
+
+
+    public PanelLanding(int interTemp, int extTemp, double humidity){
 
         this.setPrefSize(500,400);
 
@@ -51,7 +37,7 @@ public class PanelLanding extends StackPane implements Observer {
         header.setSpacing(20);
         header.setAlignment(Pos.TOP_CENTER);
 
-        Label extTempLabel = new javafx.scene.control.Label(Integer.toString(this.getParams().getExternTemp()) + "°C");
+        Label extTempLabel = new javafx.scene.control.Label(Integer.toString(extTemp) + "°C");
         extTempLabel.setPrefSize(100,100);
         extTempLabel.setAlignment(Pos.CENTER);
         extTempLabel.setFont(Font.font(fontUsed,FontWeight.NORMAL, 25));

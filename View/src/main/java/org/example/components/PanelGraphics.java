@@ -10,6 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import org.example.FridgeParams;
 import org.example.IFridgeParams;
+import org.example.IPanelGraphics;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,9 +18,10 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
-public class PanelGraphics extends StackPane implements Observer {
+public class PanelGraphics extends StackPane implements IPanelGraphics {
     private static final int WINDOW_SIZE = 6 ;
     private static CategoryAxis xAxis = new CategoryAxis();
     private static NumberAxis yAxis = new NumberAxis();
@@ -29,12 +31,6 @@ public class PanelGraphics extends StackPane implements Observer {
     ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
     private IFridgeParams params = new FridgeParams();
-    @Override
-    public void update(Observable o, Object params) {
-        if (params instanceof IFridgeParams) {
-            setParams((IFridgeParams) params);
-        }
-    }
     public IFridgeParams getParams() {
         return params;
     }
@@ -46,7 +42,8 @@ public class PanelGraphics extends StackPane implements Observer {
 
     String colorBlue = "#2fb6ee";
 
-    public PanelGraphics(){
+    public PanelGraphics(int internTemp, int extTemp, Double humidity){
+
         this.setPrefSize(500,400);
 
         rootChart.getChildren().add(TempsChart());
@@ -95,14 +92,15 @@ public class PanelGraphics extends StackPane implements Observer {
 
         XYChart.Series<String, Number> extTempSeries = new XYChart.Series<>();
         extTempSeries.setName("Temp. ext.");
+
         areaChart.getData().add(intTempSeries);
         areaChart.getData().add(extTempSeries);
-        areaChart.setCreateSymbols(false);
 
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             Platform.runLater(() -> {
                 Date now = new Date();
-                intTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), getParams().getInternTemp()));
+                int random = ThreadLocalRandom.current().nextInt(5);
+                intTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), random));
                 if (intTempSeries.getData().size() > WINDOW_SIZE)
                     intTempSeries.getData().remove(0);
             });
@@ -111,7 +109,8 @@ public class PanelGraphics extends StackPane implements Observer {
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             Platform.runLater(() -> {
                 Date now = new Date();
-                extTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), getParams().getExternTemp()));
+                int random = ThreadLocalRandom.current().nextInt(25, 30);
+                extTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), random));
                 if (extTempSeries.getData().size() > WINDOW_SIZE)
                     extTempSeries.getData().remove(0);
             });
@@ -127,18 +126,20 @@ public class PanelGraphics extends StackPane implements Observer {
 
         final AreaChart<String, Number> areaChart = new AreaChart<>(xAxis, yAxis);
         areaChart.setTitle("graphique de l'humidité");
-        areaChart.setAnimated(true);
+        areaChart.setAnimated(false);
 
         XYChart.Series<String, Number> humSeries = new XYChart.Series<>();
         humSeries.setName("Humidité");
 
         areaChart.getData().add(humSeries);
-        areaChart.setCreateSymbols(false);
+        areaChart.setStyle("-fx-stroke-line-join: round");
 
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             Platform.runLater(() -> {
                 Date now = new Date();
-                humSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), getParams().getHumidity()));
+                int random = ThreadLocalRandom.current().nextInt(20, 25);
+
+                humSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), random));
 
                 if (humSeries.getData().size() > WINDOW_SIZE)
                     humSeries.getData().remove(0);

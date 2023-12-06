@@ -2,7 +2,6 @@ package org.example.components;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -15,29 +14,17 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import org.example.FridgeParams;
 import org.example.IFridgeParams;
+import org.example.IPanelParams;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public class PanelParams extends StackPane implements Observer {
-    private IFridgeParams params = new FridgeParams();
-
+public class PanelParams extends StackPane implements IPanelParams {
     String colorBlue = "#2fb6ee";
 
     String fontUsed = "Roboto";
 
-    @Override
-    public void update(Observable o, Object params) {
-        setParams((IFridgeParams) params);
-    }
-    public IFridgeParams getParams() {
-        return params;
-    }
-    public void setParams(IFridgeParams params) {
-        this.params = params;
-    }
-
-    public PanelParams(){
+    public PanelParams(int internTemp, int extTemp, Double humidity){
         this.setPrefSize(500,400);
 
         Label headerTitle = new Label("VOTRE FRIGO");
@@ -47,7 +34,7 @@ public class PanelParams extends StackPane implements Observer {
         headerTitle.setStyle("-fx-background-color: #2fb6ee");
         setAlignment(headerTitle, Pos.TOP_CENTER);
 
-        Label extTempLabel = new javafx.scene.control.Label(Integer.toString(this.getParams().getExternTemp()) + "°C");
+        Label extTempLabel = new javafx.scene.control.Label(Integer.toString(extTemp) + "°C");
         extTempLabel.setPrefSize(100, 100);
         extTempLabel.setAlignment(Pos.CENTER);
         extTempLabel.setFont(Font.font(fontUsed,FontWeight.NORMAL, 25));
@@ -61,11 +48,11 @@ public class PanelParams extends StackPane implements Observer {
         InfosWrapperTop.setSpacing(40);
 
         Label interTempLabelTitle = new Label("Température interne");
-        Label internTempLabel = new Label(Integer.toString(this.getParams().getInternTemp()) + "°C");
+        Label internTempLabel = new Label(Integer.toString(internTemp) + "°C");
         VBox interTempBox = new VBox(interTempLabelTitle,internTempLabel);
 
         Label internHumLabelTitle = new Label("Humidité interne");
-        Label internHumLabel = new Label(Double.toString(this.getParams().getHumidity()) + "%");
+        Label internHumLabel = new Label(Double.toString(humidity) + "%");
         VBox internHumBox = new VBox(internHumLabelTitle,internHumLabel);
 
         Label[] propsLabel = {internTempLabel,internHumLabel };
@@ -111,8 +98,8 @@ public class PanelParams extends StackPane implements Observer {
         validateBtn.setGraphic(imgAccView);
 
         validateBtn.setOnAction(e->{
-            params.setWantedTemp((int)inputWantedTemp.getValue());
-            System.out.println(params.getWantedTemp());
+            //params.setWantedTemp((int)inputWantedTemp.getValue());
+            System.out.println("température de consigne entrée");
         });
 
         validateBtn.setOnMouseEntered(e -> {

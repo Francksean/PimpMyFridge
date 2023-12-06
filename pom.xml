@@ -12,6 +12,7 @@
         <module>Controller</module>
         <module>Contract</module>
         <module>View</module>
+        <module>Main</module>
     </modules>
 
     <dependencies>
@@ -25,6 +26,7 @@
             <artifactId>javafx-fxml</artifactId>
             <version>19</version>
         </dependency>
+
     </dependencies>
 
     <build>

@@ -10,6 +10,7 @@
         <module name="Controller" />
         <module name="Contract" />
         <module name="View" />
+        <module name="Main" />
       </profile>
     </annotationProcessing>
   </component>

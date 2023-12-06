@@ -20,15 +20,29 @@ import org.example.components.PanelGraphics;
 import org.example.components.PanelLanding;
 import org.example.components.PanelParams;
 
-public class FridgeView extends Application implements  IFridgeView   {
+import java.util.Observable;
+import java.util.Observer;
+
+public class FridgeView extends Application implements Observer, IFridgeView   {
 
     StackPane root = new StackPane();
-
     String colorBlue = "#2fb6ee";
-
     String fontUsed = "Roboto";
-
     int menusItemSize = 60;
+    private IFridgeParams params = new FridgeParams();
+
+    @Override
+    public void update(Observable o, Object params) {
+        setParams((IFridgeParams) params);
+        System.out.println("ok update " + ((IFridgeParams) params).getHumidity() + " " + ((IFridgeParams) params).getExternTemp());
+    }
+
+    public IFridgeParams getParams() {
+        return params;
+    }
+    public void setParams(IFridgeParams params) {
+        this.params = params;
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -38,13 +52,13 @@ public class FridgeView extends Application implements  IFridgeView   {
         BorderPane pane = new BorderPane();
         HBox menu = new HBox();
 
-        root.getChildren().add(new PanelLanding());
+        root.getChildren().add(new PanelLanding(this.params.getInternTemp(), this.params.getExternTemp(), this.params.getHumidity()));
         // bouton d'acceuil
         Image imgAcc = new Image(getClass().getResource("/homeIcon.png").toExternalForm());
         ImageView imgAccView = new ImageView(imgAcc);
         Button Btnacceuil = new Button();
         Btnacceuil.setGraphic(imgAccView);
-        Btnacceuil.setOnAction(e ->{ SwitchTo(new PanelLanding(),(Button)e.getTarget());stage.setTitle("FRIDGY - Acceuil");});
+        Btnacceuil.setOnAction(e ->{ SwitchTo(new PanelLanding(this.params.getInternTemp(), this.params.getExternTemp(), this.params.getHumidity()),(Button)e.getTarget());stage.setTitle("FRIDGY - Acceuil");});
         Label btnAccLabel = new Label("Acceuil");
         VBox accVb = new VBox(Btnacceuil, btnAccLabel);
 
@@ -53,7 +67,7 @@ public class FridgeView extends Application implements  IFridgeView   {
         ImageView imgParView = new ImageView(imgPar);
         Button BtnParams = new Button();
         BtnParams.setGraphic(imgParView);
-        BtnParams.setOnAction(e ->{ SwitchTo(new PanelParams(),(Button)e.getTarget());stage.setTitle("FRIDGY - Parmètres internes");});
+        BtnParams.setOnAction(e ->{ SwitchTo(new PanelParams(this.params.getInternTemp(), this.params.getExternTemp(), this.params.getHumidity()),(Button)e.getTarget());stage.setTitle("FRIDGY - Parmètres internes");});
         Label btnParLabel = new Label("Votre frigo");
         VBox parVb = new VBox(BtnParams, btnParLabel);
 
@@ -62,7 +76,7 @@ public class FridgeView extends Application implements  IFridgeView   {
         ImageView imgGraphView = new ImageView(imgGraph);
         Button BtnGraphics = new Button();
         BtnGraphics.setGraphic(imgGraphView);
-        BtnGraphics.setOnAction(e ->{ SwitchTo(new PanelGraphics(), (Button)e.getTarget());stage.setTitle("FRIDGY - Graphes");});
+        BtnGraphics.setOnAction(e ->{ SwitchTo(new PanelGraphics(this.params.getInternTemp(), this.params.getExternTemp(), this.params.getHumidity()), (Button)e.getTarget());stage.setTitle("FRIDGY - Graphes");});
         Label btnGraphLabel = new Label("Graphes");
         VBox graphVb = new VBox(BtnGraphics, btnGraphLabel);
 
@@ -117,9 +131,12 @@ public class FridgeView extends Application implements  IFridgeView   {
         stage.sizeToScene();
 
         stage.show();
+
     }
-    public static void main(String[] args) {
-        launch(args);
+
+    @Override
+    public void main() {
+        launch();
     }
 
     public void SwitchTo(StackPane pane, Button btn){
