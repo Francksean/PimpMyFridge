@@ -5,7 +5,7 @@ public interface IFridgeParams {
     public void setWantedTemp(int wantedTemp);
     public int getInternTemp();
     public void setInternTemp(int internTemp);
-    public float getHumidity();
+    public double getHumidity();
     public void setHumidity(float humidity);
     public void setExternTemp(int externTemp);
     public int getExternTemp();
