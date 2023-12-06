@@ -1,14 +1,19 @@
 package org.example.components;
 
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import org.example.FridgeView;
 import org.example.IPanelLanding;
 
 import java.util.Date;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class PanelLanding extends StackPane implements IPanelLanding {
 
@@ -16,8 +21,11 @@ public class PanelLanding extends StackPane implements IPanelLanding {
 
     String fontUsed = "Roboto";
 
+    ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
-    public PanelLanding(int interTemp, int extTemp, double humidity){
+
+
+    public PanelLanding(){
 
         this.setPrefSize(500,400);
 
@@ -37,7 +45,7 @@ public class PanelLanding extends StackPane implements IPanelLanding {
         header.setSpacing(20);
         header.setAlignment(Pos.TOP_CENTER);
 
-        Label extTempLabel = new javafx.scene.control.Label(Integer.toString(extTemp) + "°C");
+        Label extTempLabel = new javafx.scene.control.Label(Integer.toString(new FridgeView().getParams().getExternTemp()) + "°C");
         extTempLabel.setPrefSize(100,100);
         extTempLabel.setAlignment(Pos.CENTER);
         extTempLabel.setFont(Font.font(fontUsed,FontWeight.NORMAL, 25));
@@ -57,6 +65,12 @@ public class PanelLanding extends StackPane implements IPanelLanding {
         landingInfosWrapper.setAlignment(Pos.CENTER);
 
         setAlignment(header, Pos.TOP_CENTER);
+
+        scheduledExecutorService.scheduleAtFixedRate(() -> {
+            Platform.runLater(()->{
+                extTempLabel.setText(Integer.toString(new FridgeView().getParams().getExternTemp()) + "°C");
+            });
+        }, 0, 1, TimeUnit.SECONDS);
         this.getChildren().addAll(header, landingInfosWrapper);
     }
 }

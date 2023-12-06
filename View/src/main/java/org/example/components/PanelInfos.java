@@ -7,11 +7,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import org.example.IFridgeParams;
+import org.example.IPanelInfos;
 
 import java.util.Observable;
 import java.util.Observer;
 
-public class PanelInfos extends StackPane implements Observer {
+public class PanelInfos extends StackPane implements Observer, IPanelInfos {
     private IFridgeParams params;
     @Override
     public void update(Observable o, Object params) {

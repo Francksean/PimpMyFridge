@@ -1,6 +1,7 @@
 package org.example;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -29,12 +30,13 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
     String colorBlue = "#2fb6ee";
     String fontUsed = "Roboto";
     int menusItemSize = 60;
-    private IFridgeParams params = new FridgeParams();
+    private static IFridgeParams params = new FridgeParams();
 
     @Override
     public void update(Observable o, Object params) {
         setParams((IFridgeParams) params);
-        System.out.println("ok update " + ((IFridgeParams) params).getHumidity() + " " + ((IFridgeParams) params).getExternTemp());
+        System.out.println("ok update " + ((IFridgeParams) params).getInternTemp());
+        //panelParams.updateLabels((IFridgeParams) params);
     }
 
     public IFridgeParams getParams() {
@@ -52,13 +54,13 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
         BorderPane pane = new BorderPane();
         HBox menu = new HBox();
 
-        root.getChildren().add(new PanelLanding(this.params.getInternTemp(), this.params.getExternTemp(), this.params.getHumidity()));
+        root.getChildren().add(new PanelLanding());
         // bouton d'acceuil
         Image imgAcc = new Image(getClass().getResource("/homeIcon.png").toExternalForm());
         ImageView imgAccView = new ImageView(imgAcc);
         Button Btnacceuil = new Button();
         Btnacceuil.setGraphic(imgAccView);
-        Btnacceuil.setOnAction(e ->{ SwitchTo(new PanelLanding(this.params.getInternTemp(), this.params.getExternTemp(), this.params.getHumidity()),(Button)e.getTarget());stage.setTitle("FRIDGY - Acceuil");});
+        Btnacceuil.setOnAction(e ->{ SwitchTo(new PanelLanding());stage.setTitle("FRIDGY - Acceuil");});
         Label btnAccLabel = new Label("Acceuil");
         VBox accVb = new VBox(Btnacceuil, btnAccLabel);
 
@@ -67,7 +69,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
         ImageView imgParView = new ImageView(imgPar);
         Button BtnParams = new Button();
         BtnParams.setGraphic(imgParView);
-        BtnParams.setOnAction(e ->{ SwitchTo(new PanelParams(this.params.getInternTemp(), this.params.getExternTemp(), this.params.getHumidity()),(Button)e.getTarget());stage.setTitle("FRIDGY - Parmètres internes");});
+        BtnParams.setOnAction(e ->{ SwitchTo(new PanelParams());stage.setTitle("FRIDGY - Parmètres internes");});
         Label btnParLabel = new Label("Votre frigo");
         VBox parVb = new VBox(BtnParams, btnParLabel);
 
@@ -76,7 +78,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
         ImageView imgGraphView = new ImageView(imgGraph);
         Button BtnGraphics = new Button();
         BtnGraphics.setGraphic(imgGraphView);
-        BtnGraphics.setOnAction(e ->{ SwitchTo(new PanelGraphics(this.params.getInternTemp(), this.params.getExternTemp(), this.params.getHumidity()), (Button)e.getTarget());stage.setTitle("FRIDGY - Graphes");});
+        BtnGraphics.setOnAction(e ->{ SwitchTo(new PanelGraphics());stage.setTitle("FRIDGY - Graphes");});
         Label btnGraphLabel = new Label("Graphes");
         VBox graphVb = new VBox(BtnGraphics, btnGraphLabel);
 
@@ -86,7 +88,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
         ImageView imgInfosView = new ImageView(imgInfos);
         Button BtnInfos = new Button();
         BtnInfos.setGraphic(imgInfosView);
-        BtnInfos.setOnAction(e ->{ SwitchTo(new PanelInfos(),(Button)e.getTarget());stage.setTitle("FRIDGY - Centre de notifications");});
+        BtnInfos.setOnAction(e ->{ SwitchTo(new PanelInfos());stage.setTitle("FRIDGY - Centre de notifications");});
         Label btnInfosLabel = new Label("Infos");
         VBox infosVb = new VBox(BtnInfos, btnInfosLabel);
 
@@ -135,11 +137,11 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
     }
 
     @Override
-    public void main() {
-        launch();
+    public void main(String[] args) {
+        launch(args);
     }
 
-    public void SwitchTo(StackPane pane, Button btn){
+    public void SwitchTo(StackPane pane){
         root.getChildren().clear();
         root.getChildren().add(pane);
         root.setAlignment(Pos.CENTER);

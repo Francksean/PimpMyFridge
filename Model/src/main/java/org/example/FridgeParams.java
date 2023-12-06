@@ -25,7 +25,7 @@ public class FridgeParams implements IFridgeParams {
     public double getHumidity() {
         return humidity;
     }
-    public void setHumidity(float humidity) {
+    public void setHumidity(double humidity) {
         this.humidity = humidity;
     }
     public void setExternTemp(int externTemp) {

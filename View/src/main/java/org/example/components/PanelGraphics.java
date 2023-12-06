@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import org.example.FridgeParams;
+import org.example.FridgeView;
 import org.example.IFridgeParams;
 import org.example.IPanelGraphics;
 
@@ -42,7 +43,7 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
 
     String colorBlue = "#2fb6ee";
 
-    public PanelGraphics(int internTemp, int extTemp, Double humidity){
+    public PanelGraphics(){
 
         this.setPrefSize(500,400);
 
@@ -92,29 +93,28 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
 
         XYChart.Series<String, Number> extTempSeries = new XYChart.Series<>();
         extTempSeries.setName("Temp. ext.");
-
         areaChart.getData().add(intTempSeries);
         areaChart.getData().add(extTempSeries);
 
         scheduledExecutorService.scheduleAtFixedRate(() -> {
-            Platform.runLater(() -> {
+            Platform.runLater(()->{
                 Date now = new Date();
                 int random = ThreadLocalRandom.current().nextInt(5);
-                intTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), random));
+                intTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getInternTemp()));
                 if (intTempSeries.getData().size() > WINDOW_SIZE)
                     intTempSeries.getData().remove(0);
             });
         }, 0, 1, TimeUnit.SECONDS);
 
         scheduledExecutorService.scheduleAtFixedRate(() -> {
-            Platform.runLater(() -> {
+            Platform.runLater(()->{
                 Date now = new Date();
                 int random = ThreadLocalRandom.current().nextInt(25, 30);
-                extTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), random));
+                extTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getExternTemp()));
                 if (extTempSeries.getData().size() > WINDOW_SIZE)
                     extTempSeries.getData().remove(0);
             });
-        }, 0, 1, TimeUnit.SECONDS);
+    }, 0, 1, TimeUnit.SECONDS);
         return new StackPane(areaChart);
     }
 
@@ -134,12 +134,14 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
         areaChart.getData().add(humSeries);
         areaChart.setStyle("-fx-stroke-line-join: round");
 
+
+
         scheduledExecutorService.scheduleAtFixedRate(() -> {
-            Platform.runLater(() -> {
+            Platform.runLater(()->{
                 Date now = new Date();
                 int random = ThreadLocalRandom.current().nextInt(20, 25);
 
-                humSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), random));
+                humSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getHumidity()));
 
                 if (humSeries.getData().size() > WINDOW_SIZE)
                     humSeries.getData().remove(0);

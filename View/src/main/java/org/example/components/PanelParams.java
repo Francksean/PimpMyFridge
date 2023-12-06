@@ -1,7 +1,9 @@
 package org.example.components;
 
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -13,20 +15,32 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import org.example.FridgeParams;
+import org.example.FridgeView;
 import org.example.IFridgeParams;
 import org.example.IPanelParams;
 
+import java.util.Date;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 public class PanelParams extends StackPane implements IPanelParams {
     String colorBlue = "#2fb6ee";
 
     String fontUsed = "Roboto";
 
-    public PanelParams(int internTemp, int extTemp, Double humidity){
-        this.setPrefSize(500,400);
+    Label extTempLabel;
+    Label internTempLabel;
+    Label internHumLabel;
 
+    ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+
+
+    public PanelParams(){
+        this.setPrefSize(500,400);
         Label headerTitle = new Label("VOTRE FRIGO");
         headerTitle.setFont(Font.font(fontUsed, FontWeight.BOLD, 25));
         headerTitle.setPrefSize(500, 70);
@@ -34,7 +48,9 @@ public class PanelParams extends StackPane implements IPanelParams {
         headerTitle.setStyle("-fx-background-color: #2fb6ee");
         setAlignment(headerTitle, Pos.TOP_CENTER);
 
-        Label extTempLabel = new javafx.scene.control.Label(Integer.toString(extTemp) + "°C");
+        extTempLabel = new Label(Integer.toString(new FridgeView().getParams().getExternTemp()) + "°C");
+
+
         extTempLabel.setPrefSize(100, 100);
         extTempLabel.setAlignment(Pos.CENTER);
         extTempLabel.setFont(Font.font(fontUsed,FontWeight.NORMAL, 25));
@@ -48,11 +64,15 @@ public class PanelParams extends StackPane implements IPanelParams {
         InfosWrapperTop.setSpacing(40);
 
         Label interTempLabelTitle = new Label("Température interne");
-        Label internTempLabel = new Label(Integer.toString(internTemp) + "°C");
+
+        internTempLabel = new Label(Integer.toString(new FridgeView().getParams().getInternTemp()) + "°C");
+
         VBox interTempBox = new VBox(interTempLabelTitle,internTempLabel);
 
         Label internHumLabelTitle = new Label("Humidité interne");
-        Label internHumLabel = new Label(Double.toString(humidity) + "%");
+
+        internHumLabel = new Label(Double.toString(new FridgeView().getParams().getHumidity()) + "%");
+
         VBox internHumBox = new VBox(internHumLabelTitle,internHumLabel);
 
         Label[] propsLabel = {internTempLabel,internHumLabel };
@@ -128,7 +148,13 @@ public class PanelParams extends StackPane implements IPanelParams {
         Infoswrapper.setSpacing(50);
 
         Infoswrapper.setPadding(new Insets(50,0,0,0));
+        scheduledExecutorService.scheduleAtFixedRate(() -> {
+            Platform.runLater(()->{
+                internTempLabel.setText(Integer.toString(new FridgeView().getParams().getInternTemp()) + "°C");
+                extTempLabel.setText(Integer.toString(new FridgeView().getParams().getExternTemp()) + "°C");
+                internHumLabel.setText(Double.toString((new FridgeView().getParams().getHumidity()))+ "%");
+            });
+        }, 0, 1, TimeUnit.SECONDS);
         this.getChildren().addAll(headerTitle, Infoswrapper);
-
     }
 }

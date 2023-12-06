@@ -1,5 +1,7 @@
 package org.example;
 
+import javafx.application.Platform;
+
 import java.util.Observer;
 
 public class FridgeController implements IFridgeController{
@@ -14,7 +16,17 @@ public class FridgeController implements IFridgeController{
     }
 
     public void start() {
-        view.main();
+        Thread thread = new Thread(()->{
+            for (int i = 0; i < 200; i++) {
+                model.setProps(model.getParams().getInternTemp() + 1,model.getParams().getExternTemp() + 1,model.getParams().getHumidity() + 1);
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        thread.start();
     }
 
     public void setModel(IFridgeModel model) {
