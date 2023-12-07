@@ -17,8 +17,7 @@
     all temperature monitoring and controls are carried out via a Java application under Maven worked with Javafx
 
 ### Repo Content
-* **Pimp My Fridge[masterpom]:** The Maven Project with all the source code.
-* **Diagram:** Project's ULM Diagrams.
+* **Pimp My Fridge:** The Maven Project with all the source code.
 
 ---
 ## Get Started
