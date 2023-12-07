@@ -3,7 +3,6 @@ package org.example.components;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -14,17 +13,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import org.example.FridgeParams;
 import org.example.FridgeView;
-import org.example.IFridgeParams;
 import org.example.IPanelParams;
 
-import java.util.Date;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class PanelParams extends StackPane implements IPanelParams {
@@ -35,6 +28,8 @@ public class PanelParams extends StackPane implements IPanelParams {
     Label extTempLabel;
     Label internTempLabel;
     Label internHumLabel;
+
+    int wantedTemp;
 
     ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
@@ -118,8 +113,8 @@ public class PanelParams extends StackPane implements IPanelParams {
         validateBtn.setGraphic(imgAccView);
 
         validateBtn.setOnAction(e->{
-            //params.setWantedTemp((int)inputWantedTemp.getValue());
-            System.out.println("température de consigne entrée");
+            wantedTemp = (int)inputWantedTemp.getValue();
+            System.out.println("température de consigne entrée" + wantedTemp);
         });
 
         validateBtn.setOnMouseEntered(e -> {

@@ -8,7 +8,6 @@ import java.util.Observer;
 public class FridgeModel extends Observable implements IFridgeModel {
     private IFridgeParams params = new FridgeParams();
 
-
     @Override
     public void setProps(int internTemp, int externTemp, double humidity) {
             this.params.setInternTemp(internTemp);

@@ -1,7 +1,6 @@
 package org.example;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -35,7 +34,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
     @Override
     public void update(Observable o, Object params) {
         setParams((IFridgeParams) params);
-        System.out.println("ok update " + ((IFridgeParams) params).getInternTemp());
+        System.out.println("ok update ");
         //panelParams.updateLabels((IFridgeParams) params);
     }
 
@@ -50,6 +49,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
     public void start(Stage stage) throws Exception {
         stage.setTitle("FRIDGY");
         stage.setResizable(false);
+        stage.getIcons().add(new Image("/miniFridgeIcon2.png"));
 
         BorderPane pane = new BorderPane();
         HBox menu = new HBox();
@@ -125,8 +125,6 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
         // paneau principal
         root.setPrefSize(370,650);
 
-
-
         pane.setCenter(root);
         Scene scene = new Scene(pane); // ajustez la taille selon vos besoins
         stage.setScene(scene);
@@ -147,22 +145,3 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
         root.setAlignment(Pos.CENTER);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

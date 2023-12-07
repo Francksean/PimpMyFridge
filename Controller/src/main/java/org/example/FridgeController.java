@@ -20,7 +20,7 @@ public class FridgeController implements IFridgeController{
             for (int i = 0; i < 200; i++) {
                 model.setProps(model.getParams().getInternTemp() + 1,model.getParams().getExternTemp() + 1,model.getParams().getHumidity() + 1);
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }

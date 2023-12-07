@@ -2,7 +2,7 @@ package org.example;
 
 public class FridgeParams implements IFridgeParams {
     private int internTemp = 2, externTemp = 25, wantedTemp = 0;
-    private double humidity = 2.5;
+    private double humidity = 0.5;
 
     public FridgeParams(){
         this.internTemp = getInternTemp();
