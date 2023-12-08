@@ -18,7 +18,7 @@ public class FridgeController implements IFridgeController{
     public void start() {
         Thread thread = new Thread(()->{
             for (int i = 0; i < 200; i++) {
-                model.setProps(model.getParams().getInternTemp() + 1,model.getParams().getExternTemp() + 1,model.getParams().getHumidity() + 1);
+                model.datasUpdater();
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {

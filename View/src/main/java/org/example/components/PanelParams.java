@@ -43,7 +43,7 @@ public class PanelParams extends StackPane implements IPanelParams {
         headerTitle.setStyle("-fx-background-color: #2fb6ee");
         setAlignment(headerTitle, Pos.TOP_CENTER);
 
-        extTempLabel = new Label(Integer.toString(new FridgeView().getParams().getExternTemp()) + "°C");
+        extTempLabel = new Label(Float.toString(new FridgeView().getParams().getExternTemp()) + "°C");
 
 
         extTempLabel.setPrefSize(100, 100);
@@ -60,7 +60,7 @@ public class PanelParams extends StackPane implements IPanelParams {
 
         Label interTempLabelTitle = new Label("Température interne");
 
-        internTempLabel = new Label(Integer.toString(new FridgeView().getParams().getInternTemp()) + "°C");
+        internTempLabel = new Label(Float.toString(new FridgeView().getParams().getInternTemp()) + "°C");
 
         VBox interTempBox = new VBox(interTempLabelTitle,internTempLabel);
 
@@ -145,9 +145,9 @@ public class PanelParams extends StackPane implements IPanelParams {
         Infoswrapper.setPadding(new Insets(50,0,0,0));
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             Platform.runLater(()->{
-                internTempLabel.setText(Integer.toString(new FridgeView().getParams().getInternTemp()) + "°C");
-                extTempLabel.setText(Integer.toString(new FridgeView().getParams().getExternTemp()) + "°C");
-                internHumLabel.setText(Double.toString((new FridgeView().getParams().getHumidity()))+ "%");
+                internTempLabel.setText(Float.toString(new FridgeView().getParams().getInternTemp()) + "°C");
+                extTempLabel.setText(Float.toString(new FridgeView().getParams().getExternTemp()) + "°C");
+                internHumLabel.setText(Float.toString((new FridgeView().getParams().getHumidity()))+ "%");
             });
         }, 0, 1, TimeUnit.SECONDS);
         this.getChildren().addAll(headerTitle, Infoswrapper);

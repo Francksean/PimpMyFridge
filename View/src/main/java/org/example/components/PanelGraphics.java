@@ -15,15 +15,13 @@ import org.example.IPanelGraphics;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class PanelGraphics extends StackPane implements IPanelGraphics {
-    private static final int WINDOW_SIZE = 6 ;
+    private static final int WINDOW_SIZE = 10 ;
     private static CategoryAxis xAxis = new CategoryAxis();
     private static NumberAxis yAxis = new NumberAxis();
 
@@ -31,13 +29,6 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
 
     ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
-    private IFridgeParams params = new FridgeParams();
-    public IFridgeParams getParams() {
-        return params;
-    }
-    public void setParams(IFridgeParams params) {
-        this.params = params;
-    }
 
     private StackPane rootChart = new StackPane();
 
@@ -102,7 +93,7 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
                 int random = ThreadLocalRandom.current().nextInt(5);
                 intTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getInternTemp()));
                 if (intTempSeries.getData().size() > WINDOW_SIZE)
-                    intTempSeries.getData().remove(0);
+                   intTempSeries.getData().remove(0);
             });
         }, 0, 1, TimeUnit.SECONDS);
 

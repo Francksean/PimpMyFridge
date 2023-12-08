@@ -5,8 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e783c53-7364-48e9-9781-f03143e2f618" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Main/dependency-reduced-pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/src/main/java/org/example/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main/src/main/resources/META-INF/MANIFEST.mf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View/dependency-reduced-pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/FridgeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/FridgeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Main/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Model/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/ArduinoComm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/View/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelGraphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelGraphics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelLanding.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelLanding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,11 +110,12 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\seand\Documents\X2 Djissou Happi\Module 3 - Thermodynamique\PimpMyFridge" />
       <recent name="C:\Users\seand\Documents\X2 Djissou Happi\Module 3 - Thermodynamique\PimpMyFridge\View\src\main\resources" />
+      <recent name="C:\Users\seand\Documents\X2 Djissou Happi\Module 3 - Thermodynamique\PimpMyFridge" />
       <recent name="C:\Users\seand\Documents\X2 Djissou Happi\Module 3 - Thermodynamique\PimpMyFridge\View" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\seand\Documents\X2 Djissou Happi\Module 3 - Thermodynamique\PimpMyFridge\Main" />
       <recent name="C:\Users\seand\Documents\X2 Djissou Happi\Module 3 - Thermodynamique\PimpMyFridge\View\src\main\resources" />
     </key>
   </component>
@@ -118,7 +136,14 @@
       <workItem from="1701853934345" duration="6532000" />
       <workItem from="1701862769903" duration="32946000" />
       <workItem from="1701910999260" duration="2084000" />
-      <workItem from="1701936767027" duration="3840000" />
+      <workItem from="1701936767027" duration="16667000" />
+      <workItem from="1701975663877" duration="633000" />
+      <workItem from="1701984596257" duration="635000" />
+      <workItem from="1702014165673" duration="1118000" />
+      <workItem from="1702045275180" duration="819000" />
+      <workItem from="1702050117503" duration="242000" />
+      <workItem from="1702050371119" duration="638000" />
+      <workItem from="1702053165770" duration="5783000" />
     </task>
     <task id="LOCAL-00001" summary="correction des noms de packages">
       <option name="closed" value="true" />
@@ -184,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701944280813</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="little update for the README.md">
+      <option name="closed" value="true" />
+      <created>1701944377490</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701944377490</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +245,7 @@
     <MESSAGE value="correction des problèmes du dpObserver + MVC" />
     <MESSAGE value="l'interface se met à jour correctement (données factices)" />
     <MESSAGE value="update the window icon and the README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="update the window icon and the README.md" />
+    <MESSAGE value="little update for the README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="little update for the README.md" />
   </component>
 </project>

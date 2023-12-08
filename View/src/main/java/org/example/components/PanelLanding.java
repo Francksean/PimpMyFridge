@@ -45,7 +45,7 @@ public class PanelLanding extends StackPane implements IPanelLanding {
         header.setSpacing(20);
         header.setAlignment(Pos.TOP_CENTER);
 
-        Label extTempLabel = new javafx.scene.control.Label(Integer.toString(new FridgeView().getParams().getExternTemp()) + "°C");
+        Label extTempLabel = new javafx.scene.control.Label(Float.toString(new FridgeView().getParams().getExternTemp()) + "°C");
         extTempLabel.setPrefSize(100,100);
         extTempLabel.setAlignment(Pos.CENTER);
         extTempLabel.setFont(Font.font(fontUsed,FontWeight.NORMAL, 25));
@@ -68,7 +68,7 @@ public class PanelLanding extends StackPane implements IPanelLanding {
 
         scheduledExecutorService.scheduleAtFixedRate(() -> {
             Platform.runLater(()->{
-                extTempLabel.setText(Integer.toString(new FridgeView().getParams().getExternTemp()) + "°C");
+                extTempLabel.setText(Float.toString(new FridgeView().getParams().getExternTemp()) + "°C");
             });
         }, 0, 1, TimeUnit.SECONDS);
         this.getChildren().addAll(header, landingInfosWrapper);

@@ -1,12 +1,12 @@
 package org.example;
 
 public interface IFridgeParams {
-    public int getWantedTemp();
-    public void setWantedTemp(int wantedTemp);
-    public int getInternTemp();
-    public void setInternTemp(int internTemp);
-    public double getHumidity();
-    public void setHumidity(double humidity);
-    public void setExternTemp(int externTemp);
-    public int getExternTemp();
+    public float getWantedTemp();
+    public void setWantedTemp(float wantedTemp);
+    public float getInternTemp();
+    public void setInternTemp(float internTemp);
+    public float getHumidity();
+    public void setHumidity(float humidity);
+    public void setExternTemp(float externTemp);
+    public float getExternTemp();
 }
