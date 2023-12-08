@@ -26,8 +26,10 @@ public class PanelParams extends StackPane implements IPanelParams {
     String fontUsed = "Roboto";
 
     Label extTempLabel;
+    Label extHumLabel;
     Label internTempLabel;
     Label internHumLabel;
+
 
     int wantedTemp;
 
@@ -46,15 +48,27 @@ public class PanelParams extends StackPane implements IPanelParams {
         extTempLabel = new Label(Float.toString(new FridgeView().getParams().getExternTemp()) + "°C");
 
 
-        extTempLabel.setPrefSize(100, 100);
+        extTempLabel.setPrefSize(100, 50);
         extTempLabel.setAlignment(Pos.CENTER);
         extTempLabel.setFont(Font.font(fontUsed,FontWeight.NORMAL, 25));
+
+
+        extHumLabel = new Label(Float.toString(new FridgeView().getParams().getExternHum()) + "%");
+        extHumLabel.setPrefSize(100, 50);
+        extHumLabel.setAlignment(Pos.CENTER);
+        extHumLabel.setFont(Font.font(fontUsed,FontWeight.NORMAL, 25));
+
+        VBox extParams = new VBox(extTempLabel, extHumLabel);
+        extParams.setSpacing(10);
+        extParams.setAlignment(Pos.CENTER);
+
         Label cityRegion = new Label("Douala, Littoral");
         Label countryLoc = new Label("Cameroun");
         VBox location = new VBox(cityRegion, countryLoc);
         location.setAlignment(Pos.CENTER);
         location.setPrefSize(120,50);
-        HBox InfosWrapperTop = new HBox(extTempLabel, location);
+
+        HBox InfosWrapperTop = new HBox(extParams, location);
         InfosWrapperTop.setAlignment(Pos.CENTER);
         InfosWrapperTop.setSpacing(40);
 
@@ -66,7 +80,7 @@ public class PanelParams extends StackPane implements IPanelParams {
 
         Label internHumLabelTitle = new Label("Humidité interne");
 
-        internHumLabel = new Label(Double.toString(new FridgeView().getParams().getHumidity()) + "%");
+        internHumLabel = new Label(Double.toString(new FridgeView().getParams().getInternHum()) + "%");
 
         VBox internHumBox = new VBox(internHumLabelTitle,internHumLabel);
 
@@ -147,7 +161,8 @@ public class PanelParams extends StackPane implements IPanelParams {
             Platform.runLater(()->{
                 internTempLabel.setText(Float.toString(new FridgeView().getParams().getInternTemp()) + "°C");
                 extTempLabel.setText(Float.toString(new FridgeView().getParams().getExternTemp()) + "°C");
-                internHumLabel.setText(Float.toString((new FridgeView().getParams().getHumidity()))+ "%");
+                extHumLabel.setText(Float.toString(new FridgeView().getParams().getExternHum()) + "%");
+                internHumLabel.setText(Float.toString((new FridgeView().getParams().getInternHum()))+ "%");
             });
         }, 0, 1, TimeUnit.SECONDS);
         this.getChildren().addAll(headerTitle, Infoswrapper);

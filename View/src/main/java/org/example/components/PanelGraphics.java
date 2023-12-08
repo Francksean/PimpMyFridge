@@ -119,10 +119,15 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
         areaChart.setTitle("graphique de l'humidité");
         areaChart.setAnimated(false);
 
-        XYChart.Series<String, Number> humSeries = new XYChart.Series<>();
-        humSeries.setName("Humidité");
+        XYChart.Series<String, Number> internHumSeries = new XYChart.Series<>();
+        internHumSeries.setName("Hum. int.");
 
-        areaChart.getData().add(humSeries);
+        XYChart.Series<String, Number> externHumSeries = new XYChart.Series<>();
+        externHumSeries.setName("Hum. ext.");
+
+        areaChart.getData().add(internHumSeries);
+        areaChart.getData().add(externHumSeries);
+
         areaChart.setStyle("-fx-stroke-line-join: round");
 
 
@@ -132,14 +137,28 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
                 Date now = new Date();
                 int random = ThreadLocalRandom.current().nextInt(20, 25);
 
-                humSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getHumidity()));
+                internHumSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getInternHum()));
 
-                if (humSeries.getData().size() > WINDOW_SIZE)
-                    humSeries.getData().remove(0);
+                if (internHumSeries.getData().size() > WINDOW_SIZE)
+                    internHumSeries.getData().remove(0);
+            });
+        }, 0, 1, TimeUnit.SECONDS);
+
+        scheduledExecutorService.scheduleAtFixedRate(() -> {
+            Platform.runLater(()->{
+                Date now = new Date();
+                int random = ThreadLocalRandom.current().nextInt(20, 25);
+
+                externHumSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getExternHum()));
+
+                if (externHumSeries.getData().size() > WINDOW_SIZE)
+                    externHumSeries.getData().remove(0);
             });
         }, 0, 1, TimeUnit.SECONDS);
         return new StackPane(areaChart);
     }
+
+
 
     private void switchCharts(StackPane pane){
         rootChart.getChildren().clear();

@@ -33,9 +33,10 @@ public class FridgeModel extends Observable implements IFridgeModel {
                 try {
                     FridgeParams newParams = gson.fromJson(line, FridgeParams.class);
                     System.out.println("température interne: " + newParams.getInternTemp());
-                    System.out.println("humidité : " + newParams.getHumidity());
                     System.out.println("température externe : " + newParams.getExternTemp());
-                    setProps(newParams.getInternTemp(), newParams.getExternTemp(), newParams.getHumidity());
+                    System.out.println("humidité interne : " + newParams.getInternHum());
+                    System.out.println("humidité externe : " + newParams.getExternHum());
+                    setProps(newParams.getInternTemp(), newParams.getExternTemp(), newParams.getInternHum(), newParams.getExternHum());
                     System.out.println(" ");
                 } catch (Exception e) {
                     System.out.println("Error converting to JSON: " + e.getMessage());
@@ -49,17 +50,15 @@ public class FridgeModel extends Observable implements IFridgeModel {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            activePort.closePort();
-            System.out.println("Port closed.");
         }
     }
 
     @Override
-    public void setProps(float internTemp, float externTemp, float humidity) {
+    public void setProps(float internTemp, float externTemp, float internHum, float externHum) {
         params.setInternTemp(internTemp);
         params.setExternTemp(externTemp);
-        params.setHumidity(humidity);
+        params.setInternHum(internHum);
+        params.setExternHum(externHum);
         setChanged();
         notifyObservers(getParams());
     }

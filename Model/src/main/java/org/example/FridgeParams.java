@@ -1,7 +1,7 @@
 package org.example;
 
 public class FridgeParams implements IFridgeParams {
-    private float internTemp , externTemp , wantedTemp , humidity ;
+    private float internTemp , externTemp , wantedTemp , internHum, externHum ;
 
     public float getWantedTemp() {
         return wantedTemp;
@@ -19,15 +19,6 @@ public class FridgeParams implements IFridgeParams {
         this.internTemp = internTemp;
     }
 
-    public float getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(float humidity) {
-        this.humidity = humidity;
-    }
-
-    // Corrected setExternTemp method with parameter
     public void setExternTemp(float externTemp) {
         this.externTemp = externTemp;
     }
@@ -35,4 +26,21 @@ public class FridgeParams implements IFridgeParams {
     public float getExternTemp() {
         return externTemp;
     }
+
+    public float getInternHum() {
+        return internHum;
+    }
+
+    public void setInternHum(float internHum) {
+        this.internHum = internHum;
+    }
+
+    public float getExternHum() {
+        return externHum;
+    }
+
+    public void setExternHum(float externHum) {
+        this.externHum = externHum;
+    }
+
 }

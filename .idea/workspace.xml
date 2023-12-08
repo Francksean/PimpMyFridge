@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4e783c53-7364-48e9-9781-f03143e2f618" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Main/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Model/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelGraphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelGraphics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelParams.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,6 +135,7 @@
       <workItem from="1701862769903" duration="32946000" />
       <workItem from="1701910999260" duration="2084000" />
       <workItem from="1701936767027" duration="3840000" />
+      <workItem from="1702060886500" duration="6198000" />
     </task>
     <task id="LOCAL-00001" summary="correction des noms de packages">
       <option name="closed" value="true" />
