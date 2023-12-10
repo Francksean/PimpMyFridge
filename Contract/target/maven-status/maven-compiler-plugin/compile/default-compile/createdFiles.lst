@@ -1,0 +1,8 @@
+org\example\IPanelParams.class
+org\example\IFridgeController.class
+org\example\IFridgeModel.class
+org\example\IPanelLanding.class
+org\example\IFridgeParams.class
+org\example\IPanelInfos.class
+org\example\IFridgeView.class
+org\example\IPanelGraphics.class

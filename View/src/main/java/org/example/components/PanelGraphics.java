@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class PanelGraphics extends StackPane {
 
-    private static final int WINDOW_SIZE = 20;
+    private static final int WINDOW_SIZE = 12;
     private final CategoryAxis tempXAxis = new CategoryAxis();
     private final CategoryAxis humXAxis = new CategoryAxis();
     private final NumberAxis tempYAxis = new NumberAxis();

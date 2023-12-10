@@ -3,6 +3,7 @@ package org.example.components;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -123,8 +124,13 @@ public class PanelParams extends StackPane implements IPanelParams {
 
         validateBtn.setOnAction(e -> {
             wantedTemp = (int) inputWantedTemp.getValue();
-            System.out.println("température de consigne entrée" + wantedTemp);
+            System.out.println("température de consigne entrée " + wantedTemp);
             this.paramsView.getParams().setWantedTemp(wantedTemp);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Envoi de la consigne");
+            alert.setHeaderText(null);
+            alert.setContentText("votre frigo sera réglé à " + wantedTemp + "°C");
+            alert.showAndWait();
         });
 
         validateBtn.setOnMouseEntered(e ->

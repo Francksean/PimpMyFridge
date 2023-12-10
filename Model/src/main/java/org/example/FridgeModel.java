@@ -33,7 +33,7 @@ public class FridgeModel extends Observable implements IFridgeModel {
                     System.out.println("température externe : " + newParams.getExternTemp());
                     System.out.println("humidité interne : " + newParams.getInternHum());
                     System.out.println("humidité externe : " + newParams.getExternHum());
-                    System.out.println("valeur de consigne : " + newParams.getWantedTemp());
+                    System.out.println("valeur de consigne : " + params.getWantedTemp());
                     writer.write(String.valueOf(params.getWantedTemp()));
                     writer.newLine();
                     writer.flush();

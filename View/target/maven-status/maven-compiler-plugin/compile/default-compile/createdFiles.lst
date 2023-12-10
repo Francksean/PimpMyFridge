@@ -1,0 +1,5 @@
+org\example\components\PanelGraphics.class
+org\example\components\PanelInfos.class
+org\example\FridgeView.class
+org\example\components\PanelParams.class
+org\example\components\PanelLanding.class
