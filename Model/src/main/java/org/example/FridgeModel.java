@@ -33,6 +33,7 @@ public class FridgeModel extends Observable implements IFridgeModel {
                     System.out.println("température externe : " + newParams.getExternTemp());
                     System.out.println("humidité interne : " + newParams.getInternHum());
                     System.out.println("humidité externe : " + newParams.getExternHum());
+                    System.out.println("valeur de consigne : " + newParams.getWantedTemp());
                     writer.write(String.valueOf(params.getWantedTemp()));
                     writer.newLine();
                     writer.flush();
@@ -53,27 +54,7 @@ public class FridgeModel extends Observable implements IFridgeModel {
         }
     }
 
-    public void sendTemperatureToSerial(float consigne) {
-        /*BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(activePort.getOutputStream()));
 
-        System.out.println("entree");
-        try {
-            writer.write(String.valueOf(consigne));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            writer.newLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            writer.flush();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }*/
-
-    }
 
     @Override
     public void setProps(float internTemp, float externTemp, float internHum, float externHum) {

@@ -102,7 +102,7 @@ public class PanelParams extends StackPane implements IPanelParams {
 
         Label labelInputSlider = new Label("Température de consigne");
 
-        Slider inputWantedTemp = new Slider(0, 20, 0);
+        Slider inputWantedTemp = new Slider(15, 40, 0);
         inputWantedTemp.setShowTickLabels(true);
         inputWantedTemp.setShowTickMarks(true);
         inputWantedTemp.setMajorTickUnit(5);

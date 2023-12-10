@@ -11,7 +11,7 @@ float externTemp;
 float externhumidity;
 
 boolean isFridgeConsigned = false;
-float consigne;
+float wantedTemp;
 
 static const int DHT_SENSOR_PIN_INTRIEUR = 2;
 static const int DHT_SENSOR_PIN_EXTERIEUR = 7;
@@ -55,15 +55,15 @@ void loop() {
       doc["externHum"] = externhumidity;
     }
     if (measure_environment_interieur(&internTemp, &internhumidity)) {
-      if (internTemp > consigne) {
+      if (internTemp > wantedTemp) {
         digitalWrite(relayPin, HIGH);
       } else {
         digitalWrite(relayPin, LOW);
       }
       doc["internTemp"] = internTemp;
       doc["internHum"] = internhumidity;
-      consigne = Serial.readStringUntil('\n').toFloat();
-      doc["consigne"] = consigne ;
+      wantedTemp = Serial.readStringUntil('\n').toFloat();
+      doc["wantedTemp"] = wantedTemp ;
       isFridgeConsigned = true;
 
       serializeJson(doc, Serial);
@@ -75,7 +75,7 @@ void loop() {
       doc["externHum"] = externhumidity;
     }
     if (measure_environment_interieur(&internTemp, &internhumidity)) {
-      if (internTemp > consigne) {
+      if (internTemp > wantedTemp) {
         digitalWrite(relayPin, HIGH);
       } else {
         digitalWrite(relayPin, LOW);
@@ -83,9 +83,9 @@ void loop() {
       doc["internTemp"] = internTemp;
       doc["internHum"] = internhumidity;
       if(isFridgeConsigned){
-        doc["consigne"] = consigne ;
+        doc["wantedTemp"] = wantedTemp ;
       }else{
-        doc["consigne"] = 15.0 ;
+        doc["wantedTemp"] = 15.0 ;
 
       }
 
