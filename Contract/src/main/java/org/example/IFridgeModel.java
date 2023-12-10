@@ -7,4 +7,5 @@ public interface IFridgeModel  {
     public void setParams(IFridgeParams params);
     public void addObserver(Observer args);
     public void datasUpdater();
+    public void sendTemperatureToSerial(float consigne);
 }

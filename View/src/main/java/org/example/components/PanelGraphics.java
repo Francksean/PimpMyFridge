@@ -3,15 +3,11 @@ package org.example.components;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.chart.*;
-
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import org.example.FridgeParams;
 import org.example.FridgeView;
-import org.example.IFridgeParams;
-import org.example.IPanelGraphics;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,36 +16,42 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
-public class PanelGraphics extends StackPane implements IPanelGraphics {
-    private static final int WINDOW_SIZE = 10 ;
-    private static CategoryAxis xAxis = new CategoryAxis();
-    private static NumberAxis yAxis = new NumberAxis();
+public class PanelGraphics extends StackPane {
 
-    final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    private static final int WINDOW_SIZE = 10;
+    private final CategoryAxis xAxis = new CategoryAxis();
+    private final NumberAxis tempYAxis = new NumberAxis();  // Y-Axis for temperature
+    private final NumberAxis humYAxis = new NumberAxis();   // Y-Axis for humidity
 
-    ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
+    private final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
-    private StackPane rootChart = new StackPane();
+    private final StackPane rootChart = new StackPane();
+    private final String colorBlue = "#2fb6ee";
+    private final FridgeView graphView;
 
-    String colorBlue = "#2fb6ee";
+    private final StackPane humChart;
+    private final StackPane tempChart;
 
-    public PanelGraphics(){
+    private XYChart.Series<String, Number> internHumSeries;
+    private XYChart.Series<String, Number> externHumSeries;
+    private XYChart.Series<String, Number> intTempSeries;
+    private XYChart.Series<String, Number> extTempSeries;
 
-        this.setPrefSize(500,400);
+    public PanelGraphics(FridgeView view) {
+        this.graphView = view;
+        this.setPrefSize(500, 400);
+        this.humChart = createHumChart();
+        this.tempChart = createTempChart();
 
-        rootChart.getChildren().add(TempsChart());
-        //bouton pour lancer le graphe des températres
-        Button tempChartBtn = new Button("températures");
-        tempChartBtn.setOnAction(e ->{
-            switchCharts(TempsChart());
-        });
+        rootChart.getChildren().add(tempChart);
 
+        Button tempChartBtn = new Button("Températures");
+        tempChartBtn.setOnAction(e -> switchCharts(tempChart));
 
         Button humChartBtn = new Button("Humidité");
-        humChartBtn.setOnAction(e ->{
-            switchCharts(HumChart());
-        });
+        humChartBtn.setOnAction(e -> switchCharts(humChart));
 
         HBox btnBox = new HBox(tempChartBtn, humChartBtn);
         btnBox.setAlignment(Pos.CENTER);
@@ -57,8 +59,8 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
 
         Button[] btnCharts = {tempChartBtn, humChartBtn};
 
-        for(Button intems : btnCharts){
-            intems.setStyle("-fx-background-color: none; -fx-border-width: 1px; -fx-border-radius: 1em; -fx-border-color:"+ colorBlue+" ");
+        for (Button button : btnCharts) {
+            button.setStyle("-fx-background-color: none; -fx-border-width: 1px; -fx-border-radius: 1em; -fx-border-color:" + colorBlue + " ");
         }
 
         VBox chartDisplayer = new VBox(btnBox, rootChart);
@@ -66,63 +68,64 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
         chartDisplayer.setSpacing(25);
 
         this.getChildren().add(chartDisplayer);
-
     }
 
-    private StackPane TempsChart(){
-        xAxis.setLabel("temps");
+    private StackPane createTempChart() {
+        xAxis.setLabel("Temps");
         xAxis.setAnimated(false);
-        yAxis.setLabel("Valeur (en °C)");
-        yAxis.setAnimated(false);
+        tempYAxis.setLabel("Valeur (en °C)");
+        tempYAxis.setAnimated(false);
 
-        final AreaChart<String, Number> areaChart = new AreaChart<>(xAxis, yAxis);
-        areaChart.setTitle("graphique des températures");
+        final AreaChart<String, Number> areaChart = new AreaChart<>(xAxis, tempYAxis);
+        areaChart.setTitle("Graphique des températures");
         areaChart.setAnimated(false);
 
-        XYChart.Series<String, Number> intTempSeries = new XYChart.Series<>();
+        intTempSeries = new XYChart.Series<>();
         intTempSeries.setName("Temp. int.");
 
-        XYChart.Series<String, Number> extTempSeries = new XYChart.Series<>();
+        extTempSeries = new XYChart.Series<>();
         extTempSeries.setName("Temp. ext.");
+
         areaChart.getData().add(intTempSeries);
         areaChart.getData().add(extTempSeries);
 
         scheduledExecutorService.scheduleAtFixedRate(() -> {
-            Platform.runLater(()->{
+            Platform.runLater(() -> {
                 Date now = new Date();
                 int random = ThreadLocalRandom.current().nextInt(5);
-                intTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getInternTemp()));
+                intTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), graphView.getParams().getInternTemp()));
                 if (intTempSeries.getData().size() > WINDOW_SIZE)
-                   intTempSeries.getData().remove(0);
+                    intTempSeries.getData().remove(0);
             });
         }, 0, 1, TimeUnit.SECONDS);
 
         scheduledExecutorService.scheduleAtFixedRate(() -> {
-            Platform.runLater(()->{
+            Platform.runLater(() -> {
                 Date now = new Date();
                 int random = ThreadLocalRandom.current().nextInt(25, 30);
-                extTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getExternTemp()));
+                extTempSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), graphView.getParams().getExternTemp()));
                 if (extTempSeries.getData().size() > WINDOW_SIZE)
                     extTempSeries.getData().remove(0);
             });
-    }, 0, 1, TimeUnit.SECONDS);
+        }, 0, 1, TimeUnit.SECONDS);
+
         return new StackPane(areaChart);
     }
 
-    private StackPane HumChart(){
-        xAxis.setLabel("temps");
+    private StackPane createHumChart() {
+        xAxis.setLabel("Temps");
         xAxis.setAnimated(false);
-        yAxis.setLabel("Valeurs (en %)");
-        yAxis.setAnimated(false);
+        humYAxis.setLabel("Valeur (en %)");
+        humYAxis.setAnimated(false);
 
-        final AreaChart<String, Number> areaChart = new AreaChart<>(xAxis, yAxis);
-        areaChart.setTitle("graphique de l'humidité");
+        final AreaChart<String, Number> areaChart = new AreaChart<>(xAxis, humYAxis);
+        areaChart.setTitle("Graphique de l'humidité");
         areaChart.setAnimated(false);
 
-        XYChart.Series<String, Number> internHumSeries = new XYChart.Series<>();
+        internHumSeries = new XYChart.Series<>();
         internHumSeries.setName("Hum. int.");
 
-        XYChart.Series<String, Number> externHumSeries = new XYChart.Series<>();
+        externHumSeries = new XYChart.Series<>();
         externHumSeries.setName("Hum. ext.");
 
         areaChart.getData().add(internHumSeries);
@@ -130,14 +133,12 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
 
         areaChart.setStyle("-fx-stroke-line-join: round");
 
-
-
         scheduledExecutorService.scheduleAtFixedRate(() -> {
-            Platform.runLater(()->{
+            Platform.runLater(() -> {
                 Date now = new Date();
                 int random = ThreadLocalRandom.current().nextInt(20, 25);
 
-                internHumSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getInternHum()));
+                internHumSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), graphView.getParams().getInternHum()));
 
                 if (internHumSeries.getData().size() > WINDOW_SIZE)
                     internHumSeries.getData().remove(0);
@@ -145,24 +146,24 @@ public class PanelGraphics extends StackPane implements IPanelGraphics {
         }, 0, 1, TimeUnit.SECONDS);
 
         scheduledExecutorService.scheduleAtFixedRate(() -> {
-            Platform.runLater(()->{
+            Platform.runLater(() -> {
                 Date now = new Date();
                 int random = ThreadLocalRandom.current().nextInt(20, 25);
 
-                externHumSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), new FridgeView().getParams().getExternHum()));
+                externHumSeries.getData().add(new XYChart.Data<>(dateFormat.format(now), graphView.getParams().getExternHum()));
 
                 if (externHumSeries.getData().size() > WINDOW_SIZE)
                     externHumSeries.getData().remove(0);
             });
         }, 0, 1, TimeUnit.SECONDS);
+
         return new StackPane(areaChart);
     }
 
-
-
-    private void switchCharts(StackPane pane){
+    private void switchCharts(StackPane pane) {
         rootChart.getChildren().clear();
         rootChart.getChildren().add(pane);
         rootChart.setAlignment(Pos.CENTER);
     }
 }
+
