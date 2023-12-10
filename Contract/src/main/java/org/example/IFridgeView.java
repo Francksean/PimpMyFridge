@@ -6,6 +6,6 @@ public interface IFridgeView {
     void update(Observable o, Object params);
 
     void main(String[] args);
-
+    public boolean isRunning();
     IFridgeParams getParams();
 }

@@ -4,8 +4,11 @@ import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -21,6 +24,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class PanelInfos extends StackPane implements IPanelInfos {
+
+    private final String colorBlue = "#2fb6ee";
 
     private static final double A_VALUE = 17.27;
     private static final double B_VALUE = 237.7;
@@ -53,14 +58,26 @@ public class PanelInfos extends StackPane implements IPanelInfos {
         notifsWrapper.setAlignment(Pos.CENTER);
 
         ScrollPane sp = new ScrollPane();
-        sp.setPrefSize(100, 500);
-        sp.setPadding(new Insets(20, 10, 0, 15));
+        sp.setPrefSize(100, 400);
+        sp.setPadding(new Insets(20, 10, 0, 50));
         sp.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        sp.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        sp.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         sp.setStyle("-fx-background: none;");
         sp.setContent(notifsWrapper);
 
-        VBox infosWrapper = new VBox(headerText, sp);
+        Image imgDel = new Image(String.valueOf(getClass().getResource("/deletIcon.png")));
+        ImageView imgDelView = new ImageView(imgDel);
+        Button resetBtn = new Button();
+        resetBtn.setGraphic(imgDelView);
+        resetBtn.setPrefSize(60, 60);
+        resetBtn.setStyle("-fx-background-color:none ; -fx-border-width: 1px ; -fx-border-color:black ; -fx-background-radius: 2em; -fx-opacity: 0.8; -fx-border-radius: 50%");
+        resetBtn.setOnAction(e->resetNotifs());
+
+        VBox spResetContainer = new VBox(sp, resetBtn);
+        spResetContainer.setAlignment(Pos.CENTER);
+        spResetContainer.setSpacing(35);
+
+        VBox infosWrapper = new VBox(headerText, spResetContainer);
         infosWrapper.setAlignment(Pos.TOP_CENTER);
         infosWrapper.setSpacing(25);
         infosWrapper.setPadding(new Insets(25, 0, 0, 0));
@@ -88,11 +105,15 @@ public class PanelInfos extends StackPane implements IPanelInfos {
             notifsWrapper.getChildren().add(alert);
             showAlert();
         }
-        if (temperature <= 5) {
-            Label alert = createNotificationLabel("Votre frigo a été particulièrement froid.", "blue");
-            alert.setTextFill(Color.BLUE);
+        if (temperature <= 25) {
+            Label alert = createNotificationLabel("Votre frigo a été particulièrement froid.", colorBlue);
+            alert.setTextFill(Color.web(colorBlue));
             notifsWrapper.getChildren().add(alert);
         }
+    }
+
+    private void resetNotifs(){
+        notifsWrapper.getChildren().clear();
     }
 
     private Label createNotificationLabel(String text, String color) {

@@ -32,6 +32,15 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
     private static IFridgeParams params;
 
     private IFridgeModel viewModel;
+    private boolean isRunning = true;
+
+    public boolean isRunning() {
+        return isRunning;
+    }
+
+    public void setRunning(boolean running) {
+        isRunning = running;
+    }
 
     @Override
     public void update(Observable o, Object params) {
@@ -61,6 +70,12 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
     }
 
     public FridgeView() {}
+
+    @Override
+    public void stop(){
+        setRunning(false);
+        System.out.println(isRunning);
+    }
 
     @Override
     public void start(Stage stage){

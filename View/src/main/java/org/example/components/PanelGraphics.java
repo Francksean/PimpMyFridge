@@ -61,6 +61,8 @@ public class PanelGraphics extends StackPane {
         for (Button button : btnCharts) {
             String colorBlue = "#2fb6ee";
             button.setStyle("-fx-background-color: none; -fx-border-width: 1px; -fx-border-radius: 1em; -fx-border-color:" + colorBlue + " ");
+            button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: none; -fx-border-width: 1px; -fx-border-radius: 1em; -fx-border-color:" + colorBlue + "; -fx-translate-y: -5px"));
+            button.setOnMouseExited(e -> button.setStyle("-fx-background-color: none; -fx-border-width: 1px; -fx-border-radius: 1em; -fx-border-color:" + colorBlue + "; -fx-translate-y: 0px"));
         }
 
         VBox chartDisplayer = new VBox(btnBox, rootChart);

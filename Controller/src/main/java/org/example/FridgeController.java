@@ -16,13 +16,15 @@ public class FridgeController implements IFridgeController{
 
     public void start() {
         Thread thread = new Thread(()->{
-            for (int i = 0; i < 200; i++) {
+            while(this.view.isRunning()){
                 model.datasUpdater();
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
+                view.isRunning();
+                System.out.println(this.view.isRunning());
             }
         });
         thread.start();

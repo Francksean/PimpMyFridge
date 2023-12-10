@@ -28,15 +28,16 @@ public class FridgeModel extends Observable implements IFridgeModel {
                 System.out.println("datasReceived: " + line);
 
                 try {
+                    writer.write(String.valueOf(params.getWantedTemp()));
+                    writer.newLine();
+                    writer.flush();
+                    Thread.sleep(10);
                     FridgeParams newParams = gson.fromJson(line, FridgeParams.class);
                     System.out.println("température interne: " + newParams.getInternTemp());
                     System.out.println("température externe : " + newParams.getExternTemp());
                     System.out.println("humidité interne : " + newParams.getInternHum());
                     System.out.println("humidité externe : " + newParams.getExternHum());
-                    System.out.println("valeur de consigne : " + params.getWantedTemp());
-                    writer.write(String.valueOf(params.getWantedTemp()));
-                    writer.newLine();
-                    writer.flush();
+                    System.out.println("valeur de consigne : " + newParams.getWantedTemp());
                     setProps(newParams.getInternTemp(), newParams.getExternTemp(), newParams.getInternHum(), newParams.getExternHum());
                     System.out.println(" ");
                 } catch (Exception e) {

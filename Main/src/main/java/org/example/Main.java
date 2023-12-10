@@ -5,7 +5,7 @@ public class Main {
         IFridgeParams params = new FridgeParams();
         IFridgeModel model = new FridgeModel(params);
         IFridgeView view = new FridgeView(model, params);
-        new FridgeController(model, view ).start();
+        new FridgeController(model, view).start();
         view.main(args);
     }
 }
