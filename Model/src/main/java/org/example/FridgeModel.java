@@ -9,8 +9,8 @@ import java.util.Observer;
 
 public class FridgeModel extends Observable implements IFridgeModel {
     private IFridgeParams params = new FridgeParams();
-    private SerialPort[] ports = SerialPort.getCommPorts();
-    private SerialPort activePort = ports[0];
+    private final SerialPort[] ports = SerialPort.getCommPorts();
+    private final SerialPort activePort = ports[0];
 
     public FridgeModel(){
         activePort.openPort();

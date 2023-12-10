@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4e783c53-7364-48e9-9781-f03143e2f618" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/FridgeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/FridgeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/FridgeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/FridgeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelGraphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelGraphics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelInfos.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelInfos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelParams.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +150,7 @@
       <workItem from="1702118425254" duration="9975000" />
       <workItem from="1702129270979" duration="9527000" />
       <workItem from="1702146539314" duration="25000" />
-      <workItem from="1702197636270" duration="17707000" />
+      <workItem from="1702197636270" duration="18788000" />
     </task>
     <task id="LOCAL-00001" summary="correction des noms de packages">
       <option name="closed" value="true" />
@@ -227,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702213028070</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="gestion des bugs des axes pour les graphes">
+      <option name="closed" value="true" />
+      <created>1702215991862</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702215991862</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,7 +270,8 @@
     <MESSAGE value="update the window icon and the README.md" />
     <MESSAGE value="l'interface s'update correctement" />
     <MESSAGE value="optimisation de l'architecture des vues et gestion des notifications(point de rosée)" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimisation de l'architecture des vues et gestion des notifications(point de rosée)" />
+    <MESSAGE value="gestion des bugs des axes pour les graphes" />
+    <option name="LAST_COMMIT_MESSAGE" value="gestion des bugs des axes pour les graphes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

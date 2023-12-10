@@ -69,7 +69,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
 
         PanelInfos panelInfos = new PanelInfos(this);
         PanelGraphics panelGraphics = new PanelGraphics(this);
-        PanelParams panelParams = new PanelParams(this, this.getViewModel(), panelInfos);
+        PanelParams panelParams = new PanelParams(this, this.getViewModel());
 
 
         BorderPane pane = new BorderPane();

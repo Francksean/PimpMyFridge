@@ -25,9 +25,9 @@
     ```sh
     git clone https://github.com/Francksean/PimpMyFridge
     ```
-2. Go to the main.Main class and run it
+2. Go to the main.Main class or to the Main-1.0-SNAPSHOT.jar and run it
     ```sh
-    cd ./PimpMyFridge/main/Main
+    cd ./PimpMyFridge/Main/Main or cd ./PimpMyFridge/Main/target/Main-1.0-SNAPSHOT.jar
     ```
 3. Enjoy Fridgy !
 

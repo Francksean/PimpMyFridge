@@ -25,10 +25,8 @@ public class PanelInfos extends StackPane implements IPanelInfos {
     private static final double A_VALUE = 17.27;
     private static final double B_VALUE = 237.7;
 
-    private FridgeView infosView;
-    private VBox notifsWrapper;
-
-    private ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+    private final FridgeView infosView;
+    private final VBox notifsWrapper;
 
     public PanelInfos(FridgeView view) {
         this.infosView = view;
@@ -69,6 +67,7 @@ public class PanelInfos extends StackPane implements IPanelInfos {
 
         this.getChildren().add(infosWrapper);
 
+        ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         scheduledExecutorService.scheduleAtFixedRate(this::checkNotifications, 0, 1, TimeUnit.SECONDS);
     }
 
@@ -87,7 +86,7 @@ public class PanelInfos extends StackPane implements IPanelInfos {
             Label alert = createNotificationLabel("Condensation probable vers " + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) + ".", "pink");
             alert.setTextFill(Color.RED);
             notifsWrapper.getChildren().add(alert);
-            showAlert("Risque de Condensation");
+            showAlert();
         }
         if (temperature <= 5) {
             Label alert = createNotificationLabel("Votre frigo a été particulièrement froid.", "blue");
@@ -105,9 +104,9 @@ public class PanelInfos extends StackPane implements IPanelInfos {
         return alert;
     }
 
-    private void showAlert(String title) {
+    private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle(title);
+        alert.setTitle("Risque de Condensation");
         alert.setHeaderText(null);
         alert.setContentText("ATTENTION !!! RISQUE DE CONDENSATION");
         alert.showAndWait();

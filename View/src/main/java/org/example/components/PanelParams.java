@@ -23,39 +23,37 @@ import java.util.concurrent.TimeUnit;
 
 public class PanelParams extends StackPane implements IPanelParams {
 
-    private String colorBlue = "#2fb6ee";
-    private String fontUsed = "Roboto";
+    private final String colorBlue = "#2fb6ee";
 
-    private Label extTempLabel;
-    private Label extHumLabel;
-    private Label internTempLabel;
-    private Label internHumLabel;
+    private final Label extTempLabel;
+    private final Label extHumLabel;
+    private final Label internTempLabel;
+    private final Label internHumLabel;
 
     private int wantedTemp;
 
-    private ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+    private final FridgeView paramsView;
+    private final IFridgeModel paramsModel;
 
-    private FridgeView paramsView;
-    private IFridgeModel paramsModel;
-
-    public PanelParams(FridgeView view, IFridgeModel model, PanelInfos infos) {
+    public PanelParams(FridgeView view, IFridgeModel model) {
         this.paramsModel = model;
         this.paramsView = view;
         this.setPrefSize(500, 400);
 
         Label headerTitle = new Label("VOTRE FRIGO");
+        String fontUsed = "Roboto";
         headerTitle.setFont(Font.font(fontUsed, FontWeight.BOLD, 25));
         headerTitle.setPrefSize(500, 70);
         headerTitle.setAlignment(Pos.CENTER);
         headerTitle.setStyle("-fx-background-color: #2fb6ee");
         setAlignment(headerTitle, Pos.TOP_CENTER);
 
-        extTempLabel = new Label(Float.toString(paramsView.getParams().getExternTemp()) + "°C");
+        extTempLabel = new Label(paramsView.getParams().getExternTemp() + "°C");
         extTempLabel.setPrefSize(100, 50);
         extTempLabel.setAlignment(Pos.CENTER);
         extTempLabel.setFont(Font.font(fontUsed, FontWeight.NORMAL, 25));
 
-        extHumLabel = new Label(Float.toString(paramsView.getParams().getExternHum()) + "%");
+        extHumLabel = new Label(paramsView.getParams().getExternHum() + "%");
         extHumLabel.setPrefSize(100, 50);
         extHumLabel.setAlignment(Pos.CENTER);
         extHumLabel.setFont(Font.font(fontUsed, FontWeight.NORMAL, 25));
@@ -76,7 +74,7 @@ public class PanelParams extends StackPane implements IPanelParams {
 
         Label interTempLabelTitle = new Label("Température interne");
 
-        internTempLabel = new Label(Float.toString(paramsView.getParams().getInternTemp()) + "°C");
+        internTempLabel = new Label(paramsView.getParams().getInternTemp() + "°C");
         VBox interTempBox = new VBox(interTempLabelTitle, internTempLabel);
 
         Label internHumLabelTitle = new Label("Humidité interne");
@@ -116,7 +114,7 @@ public class PanelParams extends StackPane implements IPanelParams {
         HBox slider = new HBox(inputWantedTemp);
         slider.setAlignment(Pos.CENTER);
 
-        Image imgAcc = new Image(getClass().getResource("/validIcon.png").toExternalForm());
+        Image imgAcc = new Image(String.valueOf(getClass().getResource("/validIcon.png")));
         ImageView imgAccView = new ImageView(imgAcc);
         Button validateBtn = new Button();
         validateBtn.setPrefSize(65, 65);
@@ -129,13 +127,13 @@ public class PanelParams extends StackPane implements IPanelParams {
             paramsModel.sendTemperatureToSerial(wantedTemp);
         });
 
-        validateBtn.setOnMouseEntered(e -> {
-            validateBtn.setStyle("-fx-background-color:" + colorBlue + "; -fx-border-width: 2px ; -fx-border-color:" + colorBlue + "; -fx-background-radius: 50%; -fx-opacity: 0.8; -fx-border-radius: 50%");
-        });
+        validateBtn.setOnMouseEntered(e ->
+            validateBtn.setStyle("-fx-background-color:" + colorBlue + "; -fx-border-width: 2px ; -fx-border-color:" + colorBlue + "; -fx-background-radius: 50%; -fx-opacity: 0.8; -fx-border-radius: 50%")
+        );
 
-        validateBtn.setOnMouseExited(e -> {
-            validateBtn.setStyle("-fx-background-color:none ; -fx-border-width: 2px ; -fx-border-color:" + colorBlue + "; -fx-background-radius: 50%; -fx-opacity: 0.8; -fx-border-radius: 50%");
-        });
+        validateBtn.setOnMouseExited(e ->
+            validateBtn.setStyle("-fx-background-color:none ; -fx-border-width: 2px ; -fx-border-color:" + colorBlue + "; -fx-background-radius: 50%; -fx-opacity: 0.8; -fx-border-radius: 50%")
+        );
 
         VBox SliderComponentWithLabel = new VBox(labelInputSlider, slider, validateBtn);
         SliderComponentWithLabel.setSpacing(30);
@@ -154,15 +152,16 @@ public class PanelParams extends StackPane implements IPanelParams {
         Infoswrapper.setSpacing(50);
 
         Infoswrapper.setPadding(new Insets(50, 0, 0, 0));
-        scheduledExecutorService.scheduleAtFixedRate(() -> {
+        ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+        scheduledExecutorService.scheduleAtFixedRate(() ->
             Platform.runLater(() -> {
-                internTempLabel.setText(Float.toString(paramsView.getParams().getInternTemp()) + "°C");
-                extTempLabel.setText(Float.toString(paramsView.getParams().getExternTemp()) + "°C");
-                extHumLabel.setText(Float.toString(paramsView.getParams().getExternHum()) + "%");
-                internHumLabel.setText(Float.toString(paramsView.getParams().getInternHum()) + "%");
+                internTempLabel.setText(paramsView.getParams().getInternTemp() + "°C");
+                extTempLabel.setText(paramsView.getParams().getExternTemp() + "°C");
+                extHumLabel.setText(paramsView.getParams().getExternHum() + "%");
+                internHumLabel.setText(paramsView.getParams().getInternHum() + "%");
                 //infos.verifyDew();
-            });
-        }, 0, 1, TimeUnit.SECONDS);
+            })
+        , 0, 1, TimeUnit.SECONDS);
         this.getChildren().addAll(headerTitle, Infoswrapper);
     }
 }

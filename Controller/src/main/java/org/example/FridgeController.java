@@ -1,6 +1,5 @@
 package org.example;
 
-import javafx.application.Platform;
 
 import java.util.Observer;
 
