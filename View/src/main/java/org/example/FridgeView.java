@@ -43,8 +43,8 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
     public IFridgeParams getParams() {
         return params;
     }
-    public void setParams(IFridgeParams params) {
-        this.params = params;
+    public void setParams(IFridgeParams paramss) {
+        params = paramss;
     }
 
     public FridgeView(IFridgeModel model){
@@ -62,7 +62,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
     public FridgeView() {}
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage){
         stage.setTitle("FRIDGY");
         stage.setResizable(false);
         stage.getIcons().add(new Image("/miniFridgeIcon2.png"));
@@ -77,7 +77,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
 
         root.getChildren().add(new PanelLanding(this));
         // bouton d'acceuil
-        Image imgAcc = new Image(getClass().getResource("/homeIcon.png").toExternalForm());
+        Image imgAcc = new Image(String.valueOf(getClass().getResource("/homeIcon.png")));
         ImageView imgAccView = new ImageView(imgAcc);
         Button Btnacceuil = new Button();
         Btnacceuil.setGraphic(imgAccView);
@@ -86,7 +86,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
         VBox accVb = new VBox(Btnacceuil, btnAccLabel);
 
         // bouton fenêtre des chiffres
-        Image imgPar = new Image(getClass().getResource("/settingsIcon.png").toExternalForm());
+        Image imgPar = new Image(String.valueOf(getClass().getResource("/settingsIcon.png")));
         ImageView imgParView = new ImageView(imgPar);
         Button BtnParams = new Button();
         BtnParams.setGraphic(imgParView);
@@ -95,7 +95,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
         VBox parVb = new VBox(BtnParams, btnParLabel);
 
         // bouton fenêtre des graphes
-        Image imgGraph = new Image(getClass().getResource("/graphIcon.png").toExternalForm());
+        Image imgGraph = new Image(String.valueOf(getClass().getResource("/graphIcon.png")));
         ImageView imgGraphView = new ImageView(imgGraph);
         Button BtnGraphics = new Button();
         BtnGraphics.setGraphic(imgGraphView);
@@ -105,7 +105,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
 
 
         // bouton infos
-        Image imgInfos = new Image(getClass().getResource("/infosIcon.png").toExternalForm());
+        Image imgInfos = new Image(String.valueOf(getClass().getResource("/infosIcon.png")));
         ImageView imgInfosView = new ImageView(imgInfos);
         Button BtnInfos = new Button();
         BtnInfos.setGraphic(imgInfosView);
@@ -124,8 +124,8 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
         //tableau des boutons du menu
         Button[] btnMenus = {Btnacceuil,BtnParams,BtnGraphics,BtnInfos};
         for(Button items : btnMenus){
-            items.setOnMouseEntered(e ->{ items.setStyle("-fx-border-radius: 50%; -fx-background-color: none; -fx-border-width: 1px; -fx-border-color:" + colorBlue + "; -fx-translate-y: -5px");});
-            items.setOnMouseExited(e ->{ items.setStyle("-fx-border-radius: 50%; -fx-background-color: none; -fx-border-width: 1px; -fx-border-color: gainsboro; -fx-translate-y: 0px");});
+            items.setOnMouseEntered(e -> items.setStyle("-fx-border-radius: 50%; -fx-background-color: none; -fx-border-width: 1px; -fx-border-color:" + colorBlue + "; -fx-translate-y: -5px"));
+            items.setOnMouseExited(e -> items.setStyle("-fx-border-radius: 50%; -fx-background-color: none; -fx-border-width: 1px; -fx-border-color: gainsboro; -fx-translate-y: 0px"));
             items.setPrefSize(menusItemSize,menusItemSize);
             items.setStyle("-fx-border-radius: 50%; -fx-background-color: none; -fx-border-width: 1px; -fx-border-color: gainsboro");
             items.setAlignment(Pos.CENTER);

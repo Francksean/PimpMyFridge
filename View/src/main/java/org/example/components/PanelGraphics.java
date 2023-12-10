@@ -18,10 +18,11 @@ import java.util.concurrent.TimeUnit;
 
 public class PanelGraphics extends StackPane {
 
-    private static final int WINDOW_SIZE = 10;
-    private final CategoryAxis xAxis = new CategoryAxis();
-    private final NumberAxis tempYAxis = new NumberAxis();  // Y-Axis for temperature
-    private final NumberAxis humYAxis = new NumberAxis();   // Y-Axis for humidity
+    private static final int WINDOW_SIZE = 20;
+    private final CategoryAxis tempXAxis = new CategoryAxis();
+    private final CategoryAxis humXAxis = new CategoryAxis();
+    private final NumberAxis tempYAxis = new NumberAxis();
+    private final NumberAxis humYAxis = new NumberAxis();
 
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
@@ -71,12 +72,12 @@ public class PanelGraphics extends StackPane {
     }
 
     private StackPane createTempChart() {
-        xAxis.setLabel("Temps");
-        xAxis.setAnimated(false);
+        tempXAxis.setLabel("Temps");
+        tempXAxis.setAnimated(false);
         tempYAxis.setLabel("Valeur (en °C)");
         tempYAxis.setAnimated(false);
 
-        final AreaChart<String, Number> areaChart = new AreaChart<>(xAxis, tempYAxis);
+        final AreaChart<String, Number> areaChart = new AreaChart<>(tempXAxis, tempYAxis);
         areaChart.setTitle("Graphique des températures");
         areaChart.setAnimated(false);
 
@@ -113,12 +114,12 @@ public class PanelGraphics extends StackPane {
     }
 
     private StackPane createHumChart() {
-        xAxis.setLabel("Temps");
-        xAxis.setAnimated(false);
+        humXAxis.setLabel("Temps");
+        humXAxis.setAnimated(false);
         humYAxis.setLabel("Valeur (en %)");
         humYAxis.setAnimated(false);
 
-        final AreaChart<String, Number> areaChart = new AreaChart<>(xAxis, humYAxis);
+        final AreaChart<String, Number> areaChart = new AreaChart<>(humXAxis, humYAxis);
         areaChart.setTitle("Graphique de l'humidité");
         areaChart.setAnimated(false);
 
