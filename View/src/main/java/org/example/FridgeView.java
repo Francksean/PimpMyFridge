@@ -29,7 +29,7 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
     String colorBlue = "#2fb6ee";
     String fontUsed = "Roboto";
     int menusItemSize = 60;
-    private static IFridgeParams params = new FridgeParams();
+    private static IFridgeParams params;
 
     private IFridgeModel viewModel;
 
@@ -44,11 +44,12 @@ public class FridgeView extends Application implements Observer, IFridgeView   {
         return params;
     }
     public void setParams(IFridgeParams paramss) {
-        params = paramss;
+        this.params = paramss;
     }
 
-    public FridgeView(IFridgeModel model){
+    public FridgeView(IFridgeModel model, IFridgeParams paramss){
         this.setViewModel(model);
+        params = paramss;
     }
 
     public void setViewModel(IFridgeModel viewModel) {

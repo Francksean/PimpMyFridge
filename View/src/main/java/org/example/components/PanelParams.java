@@ -124,7 +124,7 @@ public class PanelParams extends StackPane implements IPanelParams {
         validateBtn.setOnAction(e -> {
             wantedTemp = (int) inputWantedTemp.getValue();
             System.out.println("température de consigne entrée" + wantedTemp);
-            paramsModel.sendTemperatureToSerial(wantedTemp);
+            this.paramsView.getParams().setWantedTemp(wantedTemp);
         });
 
         validateBtn.setOnMouseEntered(e ->

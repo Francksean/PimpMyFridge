@@ -8,18 +8,20 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class FridgeModel extends Observable implements IFridgeModel {
-    private IFridgeParams params = new FridgeParams();
+    private IFridgeParams params;
     private final SerialPort[] ports = SerialPort.getCommPorts();
     private final SerialPort activePort = ports[0];
 
-    public FridgeModel(){
+    public FridgeModel( IFridgeParams paramss){
         activePort.openPort();
+        params = paramss;
     }
 
 
     public void datasUpdater() {
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(activePort.getInputStream()))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(activePort.getInputStream()));
+             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(activePort.getOutputStream()))) {
             String line;
             Gson gson = new Gson();
             while ((line = reader.readLine()) != null) {
@@ -31,6 +33,9 @@ public class FridgeModel extends Observable implements IFridgeModel {
                     System.out.println("température externe : " + newParams.getExternTemp());
                     System.out.println("humidité interne : " + newParams.getInternHum());
                     System.out.println("humidité externe : " + newParams.getExternHum());
+                    writer.write(String.valueOf(params.getWantedTemp()));
+                    writer.newLine();
+                    writer.flush();
                     setProps(newParams.getInternTemp(), newParams.getExternTemp(), newParams.getInternHum(), newParams.getExternHum());
                     System.out.println(" ");
                 } catch (Exception e) {
@@ -49,7 +54,6 @@ public class FridgeModel extends Observable implements IFridgeModel {
     }
 
     public void sendTemperatureToSerial(float consigne) {
-        System.out.println("\nwsssssssssssssshhhhhhhhhhhhhhh\n");
         /*BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(activePort.getOutputStream()));
 
         System.out.println("entree");
