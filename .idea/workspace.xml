@@ -5,28 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e783c53-7364-48e9-9781-f03143e2f618" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/View/src/main/resources/deletIcon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contract/target/Contract-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Contract/target/Contract-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contract/target/classes/org/example/IFridgeView.class" beforeDir="false" afterPath="$PROJECT_DIR$/Contract/target/classes/org/example/IFridgeView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/src/main/java/org/example/FridgeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/src/main/java/org/example/FridgeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/target/Controller-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/target/Controller-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/target/classes/org/example/FridgeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Controller/target/classes/org/example/FridgeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/target/Main-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/Main-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/target/original-Main-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/original-Main-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contract/target/Contract-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contract/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contract/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/target/Controller-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controller/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/Main-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/original-Main-1.0-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/target/Model-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Model/target/Model-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/target/Model-1.0-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/target/classes/org/example/FridgeModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/Model/target/classes/org/example/FridgeModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/FridgeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/FridgeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelGraphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelGraphics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelInfos.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelInfos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/target/View-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/View/target/View-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/target/classes/org/example/FridgeView.class" beforeDir="false" afterPath="$PROJECT_DIR$/View/target/classes/org/example/FridgeView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/target/classes/org/example/components/PanelGraphics.class" beforeDir="false" afterPath="$PROJECT_DIR$/View/target/classes/org/example/components/PanelGraphics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/target/View-1.0-SNAPSHOT.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/View/target/classes/org/example/components/PanelInfos.class" beforeDir="false" afterPath="$PROJECT_DIR$/View/target/classes/org/example/components/PanelInfos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arduinoModule/DHT11/DHT11.ino" beforeDir="false" afterPath="$PROJECT_DIR$/arduinoModule/DHT11/DHT11.ino" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,29 +95,29 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "21",
-    "last_opened_file_path": "C:/Users/seand/Documents/X2 Djissou Happi/Module 3 - Thermodynamique/PimpMyFridge",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/seand/Documents/X2 Djissou Happi/Module 3 - Thermodynamique/PimpMyFridge/Contract/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/seand/Documents/X2 Djissou Happi/Module 3 - Thermodynamique/PimpMyFridge&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/seand/Documents/X2 Djissou Happi/Module 3 - Thermodynamique/PimpMyFridge/Contract/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\seand\Documents\X2 Djissou Happi\Module 3 - Thermodynamique\PimpMyFridge" />
@@ -121,26 +127,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\seand\Documents\X2 Djissou Happi\Module 3 - Thermodynamique\PimpMyFridge\View\src\main\resources" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
-      <module name="Main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -165,7 +151,8 @@
       <workItem from="1702129270979" duration="9527000" />
       <workItem from="1702146539314" duration="25000" />
       <workItem from="1702197636270" duration="23108000" />
-      <workItem from="1702230359475" duration="5965000" />
+      <workItem from="1702230359475" duration="8817000" />
+      <workItem from="1702249610637" duration="2013000" />
     </task>
     <task id="LOCAL-00001" summary="correction des noms de packages">
       <option name="closed" value="true" />
@@ -295,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702221209905</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="gestion de divers paramètres de la vue et fonction de suppression des notifs">
+      <option name="closed" value="true" />
+      <created>1702236489716</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1702236489717</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +326,8 @@
     <MESSAGE value="la température de consigne est correctemnt envoyée" />
     <MESSAGE value="optimisation de l'envoie de la consigne et de la recupération du json envoyé sur le port série" />
     <MESSAGE value="réglages supplémentaires" />
-    <option name="LAST_COMMIT_MESSAGE" value="réglages supplémentaires" />
+    <MESSAGE value="gestion de divers paramètres de la vue et fonction de suppression des notifs" />
+    <option name="LAST_COMMIT_MESSAGE" value="gestion de divers paramètres de la vue et fonction de suppression des notifs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

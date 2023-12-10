@@ -26,12 +26,14 @@ public class FridgeModel extends Observable implements IFridgeModel {
             Gson gson = new Gson();
             while ((line = reader.readLine()) != null) {
                 System.out.println("datasReceived: " + line);
-
                 try {
-                    writer.write(String.valueOf(params.getWantedTemp()));
-                    writer.newLine();
-                    writer.flush();
-                    Thread.sleep(10);
+                    if(params.isConsigned()){
+                        writer.write(String.valueOf(params.getWantedTemp()));
+                        writer.newLine();
+                        writer.flush();
+                        params.setConsigned(false);
+                        System.out.println("\n valeur consigne envoyée\n IsConsigned = " + params.isConsigned() + "\n");
+                    }
                     FridgeParams newParams = gson.fromJson(line, FridgeParams.class);
                     System.out.println("température interne: " + newParams.getInternTemp());
                     System.out.println("température externe : " + newParams.getExternTemp());

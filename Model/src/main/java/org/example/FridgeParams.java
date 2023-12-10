@@ -2,12 +2,22 @@ package org.example;
 
 public class FridgeParams implements IFridgeParams {
     private float internTemp , externTemp , wantedTemp , internHum, externHum ;
+    private boolean isConsigned = false;
+
+    public boolean isConsigned() {
+        return isConsigned;
+    }
+
+    public void setConsigned(boolean consigned) {
+        isConsigned = consigned;
+    }
 
     public float getWantedTemp() {
         return wantedTemp;
     }
 
     public void setWantedTemp(float wantedTemp) {
+        setConsigned(true);
         this.wantedTemp = wantedTemp;
     }
 

@@ -68,6 +68,7 @@ void loop() {
 
       serializeJson(doc, Serial);
       Serial.println("");
+      delay(1000);
     }
   } else {
     if (measure_environment_exterieur(&externTemp, &externhumidity)) {
@@ -91,6 +92,7 @@ void loop() {
 
       serializeJson(doc, Serial);
       Serial.println("");
+      delay(1000)
     }
   }
 }

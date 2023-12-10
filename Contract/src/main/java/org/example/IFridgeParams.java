@@ -11,4 +11,6 @@ public interface IFridgeParams {
     public void setExternHum(float externHum);
     public void setExternTemp(float externTemp);
     public float getExternTemp();
+    public boolean isConsigned();
+    public void setConsigned(boolean consigned);
 }
