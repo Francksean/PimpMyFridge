@@ -13,8 +13,8 @@
 ---
 ## Overview
 ### Project goal
-    Pimp My Fridge is a 2nd year ucac-icam project which consists of creating an electronic cooling circuit for a mini USB fridge. 
-    all temperature monitoring and controls are carried out via a Java application under Maven worked with Javafx
+      Pimp My Fridge is a 2nd year ucac-icam project which consists of creating an electronic cooling circuit for a mini USB fridge. 
+      all temperature monitoring and controls are carried out via a Java application under Maven worked with Javafx
 
 ### Repo Content
 * **Pimp My Fridge:** The Maven Project with all the source code.
@@ -32,4 +32,9 @@
 3. Enjoy Fridgy !
 
 ---
+## The Interface 
+      Fridgy ! a user-friendly, real-time Java interface to control your fridge !
+<img src="assets/ScreenPMFLanding.png" width="462" height="992" style="margin-right:25px; margin-bottom: 20px"> <img src="assets/ScreenPMFParams.png" width="462" height="992" style="margin-bottom: 20px">
+<img src="assets/ScreenPMFGraph.png" width="462" height="992" style="margin-right:25px;"> <img src="assets/ScreenPMFInfos.png" width="462" height="992">
+
 

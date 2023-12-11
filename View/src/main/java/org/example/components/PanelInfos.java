@@ -95,6 +95,7 @@ public class PanelInfos extends StackPane implements IPanelInfos {
     public void verifyDew() {
         float temperature = infosView.getParams().getInternTemp();
         float humidity = infosView.getParams().getInternHum();
+        float temperatureExt = infosView.getParams().getExternTemp();
 
         double alpha = ((A_VALUE * temperature) / (B_VALUE + temperature)) + Math.log(humidity / 100.0);
         double dewPoint = (B_VALUE * alpha) / (A_VALUE - alpha);
@@ -103,12 +104,19 @@ public class PanelInfos extends StackPane implements IPanelInfos {
             Label alert = createNotificationLabel("Condensation probable vers " + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")) + ".", "pink");
             alert.setTextFill(Color.RED);
             notifsWrapper.getChildren().add(alert);
-            showAlert();
+            showAlert("ATTENTION !!! RISQUE DE CONDENSATION");
         }
         if (temperature <= 25) {
             Label alert = createNotificationLabel("Votre frigo a été particulièrement froid.", colorBlue);
             alert.setTextFill(Color.web(colorBlue));
             notifsWrapper.getChildren().add(alert);
+        }
+
+        if (temperature == temperatureExt ) {
+            Label alert = createNotificationLabel("Votre frigo s'est ouvert vers " + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"))+ ".", "pink");
+            alert.setTextFill(Color.RED);
+            notifsWrapper.getChildren().add(alert);
+            showAlert("VOTRE FRIGO S'EST OUVERT !!!");
         }
     }
 
@@ -125,11 +133,11 @@ public class PanelInfos extends StackPane implements IPanelInfos {
         return alert;
     }
 
-    private void showAlert() {
+    private void showAlert(String alertMessage) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Risque de Condensation");
         alert.setHeaderText(null);
-        alert.setContentText("ATTENTION !!! RISQUE DE CONDENSATION");
+        alert.setContentText(alertMessage);
         alert.showAndWait();
     }
 }

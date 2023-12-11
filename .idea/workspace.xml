@@ -5,34 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e783c53-7364-48e9-9781-f03143e2f618" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/ScreenPMFGraph.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/ScreenPMFInfos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/ScreenPMFLanding.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/ScreenPMFParams.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/Contract/src/main/java/org/example/IFridgeParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contract/target/Contract-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contract/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Contract/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/target/Controller-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controller/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/target/Main-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main/target/original-Main-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/target/Model-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/target/classes/org/example/FridgeModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/Model/target/classes/org/example/FridgeModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/target/View-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/target/classes/org/example/components/PanelInfos.class" beforeDir="false" afterPath="$PROJECT_DIR$/View/target/classes/org/example/components/PanelInfos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/arduinoModule/DHT11/DHT11.ino" beforeDir="false" afterPath="$PROJECT_DIR$/arduinoModule/DHT11/DHT11.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Contract/target/classes/org/example/IFridgeParams.class" beforeDir="false" afterPath="$PROJECT_DIR$/Contract/target/classes/org/example/IFridgeParams.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/target/classes/org/example/FridgeParams.class" beforeDir="false" afterPath="$PROJECT_DIR$/Model/target/classes/org/example/FridgeParams.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelInfos.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelInfos.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +133,7 @@
       <workItem from="1702146539314" duration="25000" />
       <workItem from="1702197636270" duration="23108000" />
       <workItem from="1702230359475" duration="8817000" />
-      <workItem from="1702249610637" duration="2013000" />
+      <workItem from="1702249610637" duration="5763000" />
     </task>
     <task id="LOCAL-00001" summary="correction des noms de packages">
       <option name="closed" value="true" />
@@ -290,7 +271,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702236489717</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="dernieres modifications">
+      <option name="closed" value="true" />
+      <created>1702251731237</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1702251731237</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +316,8 @@
     <MESSAGE value="optimisation de l'envoie de la consigne et de la recupération du json envoyé sur le port série" />
     <MESSAGE value="réglages supplémentaires" />
     <MESSAGE value="gestion de divers paramètres de la vue et fonction de suppression des notifs" />
-    <option name="LAST_COMMIT_MESSAGE" value="gestion de divers paramètres de la vue et fonction de suppression des notifs" />
+    <MESSAGE value="dernieres modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="dernieres modifications" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
