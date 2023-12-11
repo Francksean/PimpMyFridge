@@ -35,7 +35,7 @@
 ---
 ## The Interface 
       Fridgy ! a user-friendly, real-time Java interface to control your fridge !
-<img src="assets/ScreenPMFLanding.png" width="462" height="992" style="margin-right:25px; margin-bottom: 20px"> <img src="assets/ScreenPMFParams.png" width="462" height="992" style="margin-bottom: 20px">
-<img src="assets/ScreenPMFGraph.png" width="462" height="992" style="margin-right:25px;"> <img src="assets/ScreenPMFInfos.png" width="462" height="992">
+<img src="assets/ScreenPMFLanding.png" width="261" height="475" style="margin-right:25px; margin-bottom: 20px"> <img src="assets/ScreenPMFParams.png" width="261" height="475" style="margin-bottom: 20px">
+<img src="assets/ScreenPMFGraph.png" width="261" height="475" style="margin-right:25px;"> <img src="assets/ScreenPMFInfos.png" width="261" height="475">
 
 
