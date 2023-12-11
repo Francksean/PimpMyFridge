@@ -21,6 +21,7 @@
 
 ---
 ## Get Started
+    Before all, ensure you have an arduino card which provides datas under Json object format.
 1. Clone the repo:
     ```sh
     git clone https://github.com/Francksean/PimpMyFridge
