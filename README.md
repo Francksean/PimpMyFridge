@@ -35,7 +35,7 @@ Before all, ensure you have an arduino card which provides datas under Json obje
 
 ---
 ## The Interface
-Fridgy ! a user-friendly, real-time Java interface to control your fridge !
+Fridgy ! an user-friendly, real-time Java interface to control your fridge !
 
 <img src="assets/ScreenPMFLanding.png" width="261" height="496" style="margin-right:25px; margin-bottom: 20px"> <img src="assets/ScreenPMFParams.png" width="261" height="496" style="margin-bottom: 20px">
 <img src="assets/ScreenPMFGraph.png" width="261" height="496" style="margin-right:25px;"> <img src="assets/ScreenPMFGraphHum.png" width="261" height="496">
