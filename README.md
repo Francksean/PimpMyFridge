@@ -18,6 +18,7 @@ all temperature monitoring and controls are carried out via a Java application u
 
 ### Repo Content
 * **Pimp My Fridge:** The Maven Project with all the source code.
+* **arduinoModule:** The code for the arduino card
 
 ---
 ## Get Started
@@ -38,5 +39,6 @@ Fridgy ! a user-friendly, real-time Java interface to control your fridge !
 
 <img src="assets/ScreenPMFLanding.png" width="261" height="496" style="margin-right:25px; margin-bottom: 20px"> <img src="assets/ScreenPMFParams.png" width="261" height="496" style="margin-bottom: 20px">
 <img src="assets/ScreenPMFGraph.png" width="261" height="496" style="margin-right:25px;"> <img src="assets/ScreenPMFInfos.png" width="261" height="496">
+<img src="assets/ScreenPMFGraphHum.png" width="261" height="496">
 
 
