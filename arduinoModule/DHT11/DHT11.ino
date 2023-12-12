@@ -92,7 +92,7 @@ void loop() {
 
       serializeJson(doc, Serial);
       Serial.println("");
-      delay(1000)
+      delay(1000);
     }
   }
 }
