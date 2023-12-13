@@ -17,8 +17,10 @@ Pimp My Fridge is a 2nd year ucac-icam project which consists of creating an ele
 all temperature monitoring and controls are carried out via a Java application under Maven worked with Javafx
 
 ### Repo Content
-* **Pimp My Fridge:** The Maven Project with all the source code.
-* **arduinoModule:** The code for the arduino card
+* **Pimp My Fridge :** The Maven Project with all the source code.
+* **arduinoModule :** The code for the arduino card.
+* **Fridgy.exe :** The executable file wrapping the jar file.
+* **FridgyConfig.xml :** The xml config file for the exe one.
 
 ---
 ## Get Started

@@ -6,20 +6,20 @@ import com.google.gson.Gson;
 import java.io.*;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Random;
 
 public class FridgeModel extends Observable implements IFridgeModel {
     private IFridgeParams params;
     private final SerialPort[] ports = SerialPort.getCommPorts();
-    private final SerialPort activePort = ports[0];
+    private SerialPort activePort = ports[0];
+    ;
 
     public FridgeModel( IFridgeParams paramss){
         activePort.openPort();
         params = paramss;
     }
 
-
     public void datasUpdater() {
-
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(activePort.getInputStream()));
              BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(activePort.getOutputStream()))) {
             String line;
@@ -56,8 +56,6 @@ public class FridgeModel extends Observable implements IFridgeModel {
             e.printStackTrace();
         }
     }
-
-
 
     @Override
     public void setProps(float internTemp, float externTemp, float internHum, float externHum) {

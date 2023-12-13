@@ -112,12 +112,14 @@ public class PanelInfos extends StackPane implements IPanelInfos {
             notifsWrapper.getChildren().add(alert);
         }
 
-        if (temperature == temperatureExt ) {
+        /*pose porblème au lancement de l'application*/
+
+        /*if (temperature == temperatureExt ) {
             Label alert = createNotificationLabel("Votre frigo s'est ouvert vers " + LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"))+ ".", "pink");
             alert.setTextFill(Color.RED);
             notifsWrapper.getChildren().add(alert);
             showAlert("VOTRE FRIGO S'EST OUVERT !!!");
-        }
+        }*/
     }
 
     private void resetNotifs(){
