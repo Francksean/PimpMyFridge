@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e783c53-7364-48e9-9781-f03143e2f618" name="Changes" comment="PMF assets (final)">
-      <change afterPath="$PROJECT_DIR$/Fridgy.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FridgyConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Projet Pimp My Fridge présentation Groupe 7.pptx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/src/main/java/org/example/FridgeModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/target/classes/org/example/FridgeModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/Model/target/classes/org/example/FridgeModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelInfos.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/src/main/java/org/example/components/PanelInfos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/target/classes/org/example/components/PanelInfos.class" beforeDir="false" afterPath="$PROJECT_DIR$/View/target/classes/org/example/components/PanelInfos.class" afterDir="false" />
-    </list>
+    <list default="true" id="4e783c53-7364-48e9-9781-f03143e2f618" name="Changes" comment="final PMF" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,7 +127,7 @@
       <workItem from="1702273685130" duration="1994000" />
       <workItem from="1702278064478" duration="4381000" />
       <workItem from="1702369769180" duration="1462000" />
-      <workItem from="1702477895966" duration="497000" />
+      <workItem from="1702477895966" duration="560000" />
     </task>
     <task id="LOCAL-00001" summary="correction des noms de packages">
       <option name="closed" value="true" />
@@ -347,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702369826439</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="final PMF">
+      <option name="closed" value="true" />
+      <created>1702478434611</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1702478434611</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +388,8 @@
     <MESSAGE value="image d'interface" />
     <MESSAGE value="PMF arduino Module (final)" />
     <MESSAGE value="PMF assets (final)" />
-    <option name="LAST_COMMIT_MESSAGE" value="PMF assets (final)" />
+    <MESSAGE value="final PMF" />
+    <option name="LAST_COMMIT_MESSAGE" value="final PMF" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
